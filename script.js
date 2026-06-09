@@ -1,51 +1,44 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const navbar    = document.getElementById("navbar");
-  const navToggle = document.getElementById("navToggle");
-  const nav       = document.getElementById("nav");
+  const nav     = document.getElementById("mainNav");
+  const burger  = document.getElementById("navBurger");
+  const links   = document.getElementById("navLinks");
 
-  // Navbar shadow on scroll
+  // Navbar scroll shadow
   window.addEventListener("scroll", () => {
-    navbar.classList.toggle("scrolled", window.scrollY > 48);
+    nav && nav.classList.toggle("scrolled", window.scrollY > 40);
   }, { passive: true });
 
-  // Mobile nav toggle
-  navToggle.addEventListener("click", () => {
-    const isOpen = nav.classList.toggle("open");
-    navToggle.classList.toggle("open", isOpen);
-    navToggle.setAttribute("aria-expanded", isOpen);
-    navToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
-  });
-
-  // Close mobile nav on link click
-  nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("open");
-      navToggle.classList.remove("open");
-      navToggle.setAttribute("aria-expanded", "false");
-      navToggle.setAttribute("aria-label", "Open navigation");
+  // Mobile menu
+  if (burger && links) {
+    burger.addEventListener("click", () => {
+      const open = links.classList.toggle("open");
+      burger.classList.toggle("open", open);
+      burger.setAttribute("aria-expanded", open);
+      burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     });
-  });
+    links.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        links.classList.remove("open");
+        burger.classList.remove("open");
+        burger.setAttribute("aria-expanded", "false");
+        burger.setAttribute("aria-label", "Open menu");
+      });
+    });
+  }
 
   // Scroll reveal
-  const targets = document.querySelectorAll(
-    ".about-main, .about-block, .value-tag, .impact-card, .project-card, .program-item, .join-inner, .contact-block"
-  );
+  const els = document.querySelectorAll(".reveal");
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: "0px 0px -36px 0px" });
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
-  );
-
-  targets.forEach((el, i) => {
-    el.classList.add("reveal");
-    el.style.transitionDelay = `${Math.min(i % 6, 5) * 60}ms`;
-    observer.observe(el);
+  els.forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 6) * 55}ms`;
+    io.observe(el);
   });
 });
