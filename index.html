@@ -3,120 +3,367 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terra Reform | Student-Led Innovation</title>
-  <meta name="description" content="Terra Reform is an international student-led science and technology organization developing sustainable solutions through research, engineering, innovation, and global collaboration." />
-  <link rel="icon" type="image/jpeg" href="assets/favicon.jpg">
+  <title>Terra Reform | Student-Led Science &amp; Technology Innovation</title>
+  <meta name="description" content="Terra Reform is an independent student-led science and technology organization developing sustainable solutions through research, engineering, innovation, and global collaboration." />
+  <meta name="keywords" content="Terra Reform, student innovation, STEM, engineering, sustainability, research, technology, science" />
+  <meta property="og:title" content="Terra Reform" />
+  <meta property="og:description" content="Building sustainable solutions through youth leadership, innovation, and global collaboration." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://terra-reform.org/" />
+  <link rel="canonical" href="https://terra-reform.org/" />
+  <link rel="icon" type="image/jpeg" href="assets/favicon.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-  <header class="navbar">
-    <div class="logo">
-        <img src="assets/terra-reform-logo.jpg" alt="Terra Reform logo" />
-        <span>Terra Reform</span>
-      </div>
-      <nav>
+
+  <!-- ── Navigation ── -->
+  <header class="navbar" id="navbar">
+    <a class="logo" href="#">
+      <img src="assets/terra-reform-logo.jpg" alt="Terra Reform" />
+      <span>Terra Reform</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav">
       <a href="#about">About</a>
-      <a href="#impact">Impact</a>
       <a href="#projects">Projects</a>
+      <a href="#programs">Programs</a>
       <a href="#join">Join Us</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-content">
-        <p class="eyebrow">Student-Led Science & Technology Organization</p>
-        <h1>Building Sustainable Solutions Through Youth Leadership, Innovation, and Global Collaboration.</h1>
-        <p class="hero-text">
-          Terra Reform develops research, engineering, and software-driven projects aimed at solving real-world challenges through interdisciplinary teamwork.
-        </p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn primary">Explore Projects</a>
-          <a href="#join" class="btn secondary">Join Terra Reform</a>
+
+    <!-- ── Hero ── -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-inner">
+        <p class="eyebrow">Student-Led Science &amp; Technology Organization</p>
+        <h1>Terra Reform</h1>
+        <p class="hero-sub">Building sustainable solutions through youth leadership, innovation, and global collaboration.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">Explore Projects</a>
+          <a href="#join" class="btn btn-outline">Join Us</a>
         </div>
       </div>
     </section>
 
-    <section id="about" class="section">
-      <h2>Who We Are</h2>
-      <p>
-        Terra Reform is an international student-led innovation and engineering organization focused on research, technology, sustainability, and practical problem-solving. We bring together ambitious students who want to transform scientific curiosity into real projects with measurable impact.
-      </p>
-      <p>
-        Our work combines science, engineering, software development, artificial intelligence, environmental innovation, and policy-oriented thinking to address ongoing global challenges.
-      </p>
-    </section>
-
-    <section id="impact" class="section">
-      <h2>Impact Areas</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Science</h3>
-          <p>Research-driven experimentation, scientific inquiry, and competition-based project development.</p>
+    <!-- ── About ── -->
+    <section id="about" class="section about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-main">
+            <p class="section-label">Who We Are</p>
+            <h2>An Independent Student-Led Innovation Initiative</h2>
+            <p>Terra Reform brings together ambitious students who want to move beyond discussing challenges and instead design, build, and test real solutions. We are not a company, not a school club — we are an independent, international student-led initiative focused on doing serious work.</p>
+            <p>Our work spans scientific research, hardware engineering, software development, and policy — always grounded in evidence and shaped by a commitment to measurable, real-world impact.</p>
+          </div>
+          <div class="about-blocks">
+            <div class="about-block">
+              <h3>Mission</h3>
+              <p>To empower students to transform ideas into impactful projects that create positive change in society.</p>
+            </div>
+            <div class="about-block">
+              <h3>Vision</h3>
+              <p>To become a globally connected student innovation network where young people collaborate across disciplines to develop solutions for environmental, technological, educational, and societal challenges — evolving into an innovation ecosystem and startup incubator for student-led solutions.</p>
+            </div>
+            <div class="about-block">
+              <h3>What Makes Us Different</h3>
+              <p>Terra Reform combines science, engineering, software, sustainability, and international collaboration. Members research, design, build, test, and present real projects — not just discuss problems.</p>
+            </div>
+          </div>
         </div>
-        <div class="card">
-          <h3>Engineering</h3>
-          <p>Designing prototypes and practical systems that connect theory with real-world implementation.</p>
-        </div>
-        <div class="card">
-          <h3>Technology</h3>
-          <p>Using software, AI, simulations, and digital tools to create scalable solutions.</p>
-        </div>
-        <div class="card">
-          <h3>Sustainability</h3>
-          <p>Developing innovation-oriented responses to environmental and societal challenges.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="section dark">
-      <h2>Flagship Projects & Programs</h2>
-      <div class="project-grid">
-        <div class="project">
-          <h3>TÜBİTAK</h3>
-          <p>High school research projects focused on scientific creativity and original problem-solving.</p>
-        </div>
-        <div class="project">
-          <h3>CERN BL4S</h3>
-          <p>Participation in the CERN Beamline for Schools program, encouraging advanced physics and experimental design.</p>
-        </div>
-        <div class="project">
-          <h3>NYAS</h3>
-          <p>International collaboration through the New York Academy of Sciences challenge ecosystem.</p>
-        </div>
-        <div class="project">
-          <h3>TEKNOFEST</h3>
-          <p>Technology-oriented competitions and innovation projects in engineering and applied science.</p>
+        <div class="values-row">
+          <p class="section-label">Core Values</p>
+          <div class="values-grid">
+            <span class="value-tag">Innovation</span>
+            <span class="value-tag">Scientific Thinking</span>
+            <span class="value-tag">Engineering Excellence</span>
+            <span class="value-tag">Sustainability</span>
+            <span class="value-tag">Collaboration</span>
+            <span class="value-tag">Leadership</span>
+            <span class="value-tag">Accessibility</span>
+            <span class="value-tag">Continuous Learning</span>
+            <span class="value-tag">Global Perspective</span>
+            <span class="value-tag">Real-World Impact</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>Our Vision</h2>
-      <p>
-        We believe young innovators should not wait until university or industry to begin creating impact. Terra Reform exists to help students build the skills, confidence, and collaborative environment needed to develop serious scientific and technological solutions.
-      </p>
+    <!-- ── Impact Areas ── -->
+    <section id="impact" class="section impact">
+      <div class="container">
+        <p class="section-label">Focus Areas</p>
+        <h2>Where We Work</h2>
+        <p class="section-intro">Terra Reform operates across six interconnected disciplines, pursuing practical solutions at their intersection.</p>
+        <div class="impact-grid">
+
+          <div class="impact-card">
+            <div class="impact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+            </div>
+            <h3>Science</h3>
+            <p>Research-driven experimentation, scientific inquiry, and evidence-based competition project development.</p>
+          </div>
+
+          <div class="impact-card">
+            <div class="impact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+            </div>
+            <h3>Engineering</h3>
+            <p>Designing and building prototypes that bridge the gap between theory and practical implementation.</p>
+          </div>
+
+          <div class="impact-card">
+            <div class="impact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3>Sustainability</h3>
+            <p>Developing innovation-oriented responses to environmental and societal challenges through applied research.</p>
+          </div>
+
+          <div class="impact-card">
+            <div class="impact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            </div>
+            <h3>Software Development</h3>
+            <p>Building digital tools, interactive simulations, and applications that solve real-world problems at scale.</p>
+          </div>
+
+          <div class="impact-card">
+            <div class="impact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </div>
+            <h3>Education</h3>
+            <p>Making science and technology education more accessible, engaging, and hands-on for students everywhere.</p>
+          </div>
+
+          <div class="impact-card">
+            <div class="impact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            </div>
+            <h3>Accessibility</h3>
+            <p>Designing inclusive solutions that expand access to education, technology, and information for all people.</p>
+          </div>
+
+        </div>
+      </div>
     </section>
 
-    <section id="join" class="section join">
-      <h2>Join Terra Reform</h2>
-      <p>
-        We are looking for technology-oriented international students, researchers, developers, engineers, designers, and young innovators who want to contribute to ambitious student-led projects.
-      </p>
-      <a href="mailto:info@terra-reform.org" class="btn primary">Contact Us</a>
+    <!-- ── Projects ── -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <p class="section-label light">Our Work</p>
+        <h2 class="section-heading-light">Projects</h2>
+        <p class="section-intro section-intro-light">Research, engineering, and software projects developed through national and international competitions and independent initiatives. Projects are presented as they are — competition entries, research proposals, concept developments, and simulations.</p>
+        <div class="project-grid">
+
+          <div class="project-card">
+            <div class="project-img" style="--accent: #2bb673;">
+              <span class="project-img-label">Sustainability &middot; Energy</span>
+            </div>
+            <div class="project-body">
+              <h3>Solar-Powered School Microgrid</h3>
+              <p>A sustainability-focused proposal investigating solar generation, battery storage, and forecast-driven energy management to create clean energy hubs serving schools and surrounding communities as resilience anchors.</p>
+              <div class="project-footer">
+                <span class="project-tag">NYAS</span>
+                <a href="#contact" class="btn btn-sm">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img" style="--accent: #3b82f6;">
+              <span class="project-img-label">Safety &middot; Communication</span>
+            </div>
+            <div class="project-body">
+              <h3>Safe Explorer</h3>
+              <p>A portable emergency communication concept for outdoor sports and remote environments. The system uses radio-based communication between users and central stations to improve safety, emergency response, and rescue coordination for mountaineers, hikers, cyclists, and skiers.</p>
+              <div class="project-footer">
+                <span class="project-tag">TEKNOFEST</span>
+                <a href="#contact" class="btn btn-sm">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img" style="--accent: #8b5cf6;">
+              <span class="project-img-label">Accessibility &middot; Education</span>
+            </div>
+            <div class="project-body">
+              <h3>Braille Circuits</h3>
+              <p>An accessibility-focused educational project that uses tactile Braille-based representations to help visually impaired individuals understand electrical circuits and engage meaningfully with STEM education through inclusive design.</p>
+              <div class="project-footer">
+                <span class="project-tag">TEKNOFEST</span>
+                <a href="#contact" class="btn btn-sm">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img" style="--accent: #f59e0b;">
+              <span class="project-img-label">Education &middot; Software</span>
+            </div>
+            <div class="project-body">
+              <h3>Virtual Physics Laboratory</h3>
+              <p>A Roblox-based interactive virtual physics laboratory designed to make practical science education more accessible. Covers multiple physics topics through interactive simulations. Regional Finalist in the TÜBİTAK 2204-A High School Research Projects Competition.</p>
+              <div class="project-footer">
+                <span class="project-tag">TÜBİTAK 2204-A</span>
+                <a href="#contact" class="btn btn-sm">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img" style="--accent: #ef4444;">
+              <span class="project-img-label">Physics &middot; Research</span>
+            </div>
+            <div class="project-body">
+              <h3>CERN BL4S Project</h3>
+              <p>A proposed scientific research project investigating lead shielding methods to protect NbN superconducting thin films from proton radiation, with potential applications in space technologies, particle physics, and quantum systems.</p>
+              <div class="project-footer">
+                <span class="project-tag">CERN BL4S</span>
+                <a href="#contact" class="btn btn-sm">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img" style="--accent: #06b6d4;">
+              <span class="project-img-label">Robotics &middot; Engineering</span>
+            </div>
+            <div class="project-body">
+              <h3>Autonomous Infantry Robot (AIR)</h3>
+              <p>A humanoid robotics concept exploring remote operation and future autonomous functionality for deployment in dangerous environments, with applications in search and rescue, hazardous site inspection, and emergency response.</p>
+              <div class="project-footer">
+                <span class="project-tag">TEKNOFEST</span>
+                <a href="#contact" class="btn btn-sm">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
 
-    <section id="contact" class="section contact">
-      <h2>Contact</h2>
-      <p>Email us at:</p>
-      <a href="mailto:info@terra-reform.org">info@terra-reform.org</a>
+    <!-- ── Competitions & Programs ── -->
+    <section id="programs" class="section programs">
+      <div class="container">
+        <p class="section-label">Competitions &amp; Programs</p>
+        <h2>Where We've Competed</h2>
+        <p class="section-intro">Terra Reform has participated in national and international competitions and programs across science, technology, engineering, and policy.</p>
+        <div class="programs-grid">
+
+          <div class="program-item">
+            <div class="program-num" aria-hidden="true">01</div>
+            <h3>TEKNOFEST</h3>
+            <p>Turkey's largest technology and aerospace festival. Terra Reform has developed multiple engineering and technology projects — including Safe Explorer, Braille Circuits, and AIR — for TEKNOFEST competitions.</p>
+          </div>
+
+          <div class="program-item">
+            <div class="program-num" aria-hidden="true">02</div>
+            <h3>TÜBİTAK</h3>
+            <p>High school research project competitions organized by The Scientific and Technological Research Council of Turkey. Virtual Physics Laboratory was a Regional Finalist in the TÜBİTAK 2204-A competition.</p>
+          </div>
+
+          <div class="program-item">
+            <div class="program-num" aria-hidden="true">03</div>
+            <h3>CERN Beamline for Schools</h3>
+            <p>An international competition hosted by CERN inviting high school students to propose experiments using a real CERN particle beam, encouraging advanced physics and experimental design thinking.</p>
+          </div>
+
+          <div class="program-item">
+            <div class="program-num" aria-hidden="true">04</div>
+            <h3>New York Academy of Sciences</h3>
+            <p>A Global STEM Alliance challenge series connecting student innovators internationally. Terra Reform developed the Solar-Powered School Microgrid project as part of the NYAS program.</p>
+          </div>
+
+          <div class="program-item">
+            <div class="program-num" aria-hidden="true">05</div>
+            <h3>Büyük Ankara AI &amp; Climate Policy Workshop</h3>
+            <p>A policy-oriented program exploring the intersection of artificial intelligence, climate change, and governance — connecting student thinkers with real policy challenges.</p>
+          </div>
+
+        </div>
+      </div>
     </section>
+
+    <!-- ── Join Us ── -->
+    <section id="join" class="section join-section">
+      <div class="container">
+        <div class="join-inner">
+          <p class="section-label">Get Involved</p>
+          <h2>Join Terra Reform</h2>
+          <p>Terra Reform welcomes motivated students interested in science, engineering, software development, research, and sustainability. Whether you're passionate about clean energy, robotics, accessibility, scientific research, or any intersection of these — there's a place for you here.</p>
+          <p>We are an international initiative and welcome students from all backgrounds, disciplines, and countries.</p>
+          <a href="mailto:info@terra-reform.org" class="btn btn-primary">Get In Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Contact ── -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <p class="section-label">Reach Out</p>
+        <h2>Contact</h2>
+        <p class="contact-intro">Have a question, an idea, or want to collaborate? We'd like to hear from you.</p>
+        <div class="contact-grid">
+
+          <div class="contact-block">
+            <h3>Email</h3>
+            <a href="mailto:info@terra-reform.org">info@terra-reform.org</a>
+          </div>
+
+          <div class="contact-block">
+            <h3>Social Media</h3>
+            <div class="social-links">
+              <a href="#" class="social-link" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                <span>Instagram</span>
+              </a>
+              <a href="#" class="social-link" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                <span>LinkedIn</span>
+              </a>
+              <a href="#" class="social-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    <p>© 2026 Terra Reform. Student-led innovation for real-world challenges.</p>
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/terra-reform-logo.jpg" alt="Terra Reform" />
+          <span>Terra Reform</span>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#programs">Programs</a>
+          <a href="#join">Join Us</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Terra Reform. Student-led innovation for real-world challenges.</p>
+        <a href="mailto:info@terra-reform.org">info@terra-reform.org</a>
+      </div>
+    </div>
   </footer>
 
   <script src="script.js"></script>
