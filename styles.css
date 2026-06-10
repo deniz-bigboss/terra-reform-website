@@ -389,6 +389,7 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
 }
 .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.team-links { display: flex; flex-wrap: wrap; gap: 4px 16px; }
 .team-link {
   display: inline-flex; align-items: center; gap: 6px;
   margin-top: 6px; font-size: 0.8rem; color: var(--text-2);
