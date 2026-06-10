@@ -42,6 +42,29 @@ document.addEventListener("DOMContentLoaded", () => {
     io.observe(el);
   });
 
+  // ── Timeline: scroll-driven line fill + item lighting ──
+  const tlTrack = document.getElementById("tlTrack");
+  const tlFill = document.getElementById("tlFill");
+  if (tlTrack && tlFill) {
+    const items = tlTrack.querySelectorAll(".tl-item");
+    const update = () => {
+      const rect = tlTrack.getBoundingClientRect();
+      const focus = window.innerHeight * 0.72;
+      const progress = Math.min(Math.max((focus - rect.top) / rect.height, 0), 1);
+      tlFill.style.height = (progress * 100) + "%";
+      const frontY = rect.top + rect.height * progress;
+      items.forEach(item => {
+        const dot = item.querySelector(".tl-dot");
+        if (dot && dot.getBoundingClientRect().top <= frontY) {
+          item.classList.add("lit");
+        }
+      });
+    };
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  }
+
   // ── Interactive Globe (hero) ──
   const canvas = document.getElementById("heroGlobe");
   if (canvas && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {

@@ -751,58 +751,131 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ─────────────────────────────────────────
-   Timeline
+   Timeline — central line, alternating cards
    ───────────────────────────────────────── */
 .timeline {
   position: relative;
-  max-width: 720px;
-  margin-top: 48px;
-  padding-left: 36px;
+  max-width: 920px;
+  margin: 56px auto 0;
+  padding: 10px 0 30px;
 }
-.timeline::before {
-  content: "";
+.tl-line {
   position: absolute;
-  left: 7px; top: 6px; bottom: 6px;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--green), var(--border-2));
+  left: 50%; top: 0; bottom: 0;
+  width: 3px;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.07);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.tl-line-fill {
+  width: 100%; height: 0%;
+  background: linear-gradient(to bottom, var(--green), #06b6d4);
+  border-radius: 3px;
+  box-shadow: 0 0 14px rgba(0,223,107,0.55);
+  transition: height 0.15s linear;
 }
 .tl-item {
   position: relative;
-  padding-bottom: 36px;
+  width: 50%;
+  padding: 0 48px 56px 0;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+.tl-item.lit { opacity: 1; transform: translateY(0); }
+.tl-item:nth-child(even of .tl-item) {
+  left: 50%;
+  padding: 0 0 56px 48px;
 }
 .tl-item:last-child { padding-bottom: 0; }
+
 .tl-dot {
   position: absolute;
-  left: -36px; top: 6px;
-  width: 16px; height: 16px;
+  top: 22px; right: -9px;
+  width: 18px; height: 18px;
   border-radius: 50%;
   background: var(--bg-1);
-  border: 2px solid var(--green);
+  border: 2px solid rgba(255,255,255,0.18);
+  z-index: 2;
+  transition: border-color 0.4s, box-shadow 0.4s, background 0.4s, transform 0.4s;
 }
+.tl-item:nth-child(even of .tl-item) .tl-dot { right: auto; left: -9px; }
+.tl-item.lit .tl-dot {
+  border-color: var(--c, var(--green));
+  background: var(--c, var(--green));
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--c, var(--green)) 18%, transparent), 0 0 16px var(--c, var(--green));
+  transform: scale(1.1);
+}
+
+.tl-year {
+  position: absolute;
+  top: 16px; left: calc(100% + 34px);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.05rem; font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--text-2);
+  opacity: 0;
+  transition: opacity 0.5s, color 0.5s;
+}
+.tl-item:nth-child(even of .tl-item) .tl-year { left: auto; right: calc(100% + 34px); }
+.tl-item.lit .tl-year { opacity: 1; color: var(--c, var(--green)); }
+
+.tl-card {
+  display: block;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s;
+}
+a.tl-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--c, var(--green));
+  box-shadow: 0 14px 36px rgba(0,0,0,0.45), 0 0 0 1px color-mix(in srgb, var(--c, var(--green)) 35%, transparent);
+}
+a.tl-card:hover .text-link { letter-spacing: 0.4px; }
 .tl-date {
   display: inline-block;
-  font-size: 0.72rem; font-weight: 700;
+  font-size: 0.7rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: 2px;
-  color: var(--green);
+  color: var(--c, var(--green));
   margin-bottom: 8px;
 }
 .tl-card h3 {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   margin-bottom: 6px;
 }
 .tl-card p {
   color: var(--text-2);
-  font-size: 0.9rem;
-  margin-bottom: 6px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin-bottom: 8px;
 }
-.tl-milestone .tl-dot {
-  background: var(--green);
-  box-shadow: 0 0 0 5px rgba(0,223,107,0.15);
-}
+.tl-card .text-link { font-size: 0.85rem; transition: letter-spacing 0.3s; }
+
 .tl-milestone .tl-card {
-  background: var(--bg-card-2);
-  border: 1px solid var(--border-2);
-  border-radius: var(--radius);
-  padding: 20px 24px;
+  background: linear-gradient(135deg, rgba(0,223,107,0.10), var(--bg-card-2));
+  border-color: rgba(0,223,107,0.35);
+}
+
+@media (max-width: 760px) {
+  .tl-line { left: 9px; transform: none; }
+  .tl-item,
+  .tl-item:nth-child(even of .tl-item) {
+    width: 100%;
+    left: 0;
+    padding: 0 0 44px 44px;
+  }
+  .tl-dot,
+  .tl-item:nth-child(even of .tl-item) .tl-dot { left: 1px; right: auto; }
+  .tl-year,
+  .tl-item:nth-child(even of .tl-item) .tl-year {
+    position: static;
+    display: block;
+    margin-bottom: 6px;
+  }
 }
