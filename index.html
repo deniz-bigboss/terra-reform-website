@@ -21,16 +21,16 @@
   <!-- ── Navigation ── -->
   <header class="nav" id="mainNav">
     <div class="nav-inner">
-      <a class="nav-logo" href="#">
+      <a class="nav-logo" href="/">
         <img src="assets/terra-reform-logo.jpg" alt="Terra Reform" />
         <span>Terra Reform</span>
       </a>
       <nav class="nav-links" id="navLinks">
-        <a href="#about">About</a>
+        <a href="/about.html">About</a>
         <a href="#projects">Projects</a>
-        <a href="#programs">Programs</a>
-        <a href="#join">Join Us</a>
-        <a href="#contact">Contact</a>
+        <a href="/programs.html">Programs</a>
+        <a href="/join.html">Join Us</a>
+        <a href="/contact.html">Contact</a>
       </nav>
       <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -43,6 +43,7 @@
     <!-- ── Hero ── -->
     <section class="hero">
       <div class="hero-grid"></div>
+      <canvas id="heroGlobe" class="hero-globe" aria-hidden="true"></canvas>
       <div class="container">
         <div class="hero-inner">
           <div class="hero-badge">
@@ -69,51 +70,7 @@
           </div>
           <div class="hero-ctas">
             <a href="#projects" class="btn btn-green">Explore Projects</a>
-            <a href="#join" class="btn btn-ghost">Join Us &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── About ── -->
-    <section id="about" class="section">
-      <div class="container">
-        <div class="about-grid">
-          <div class="about-text reveal">
-            <p class="label">Who We Are</p>
-            <h2>An Independent Student-Led Innovation Initiative</h2>
-            <p>Terra Reform brings together ambitious students who want to move beyond discussing challenges and instead design, build, and test real solutions. We are not a company, not a school club — we are an independent, international initiative focused on doing serious work.</p>
-            <p>Our work spans scientific research, hardware engineering, software development, and policy — always grounded in evidence and shaped by a commitment to measurable, real-world impact.</p>
-          </div>
-          <div class="about-cards">
-            <div class="info-card reveal">
-              <p class="info-label">Mission</p>
-              <p>To empower students to transform ideas into impactful projects that create positive change in society.</p>
-            </div>
-            <div class="info-card reveal">
-              <p class="info-label">Vision</p>
-              <p>A globally connected student innovation network evolving into an innovation ecosystem and startup incubator for student-led solutions.</p>
-            </div>
-            <div class="info-card reveal">
-              <p class="info-label">Approach</p>
-              <p>Members research, design, build, test, and present real projects — not just discuss problems. Interdisciplinary collaboration is central to everything we do.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="section" style="padding-top: 72px; padding-bottom: 0;">
-          <p class="label reveal">Core Values</p>
-          <div class="values-wrap reveal">
-            <span class="v-pill">Innovation</span>
-            <span class="v-pill">Scientific Thinking</span>
-            <span class="v-pill">Engineering Excellence</span>
-            <span class="v-pill">Sustainability</span>
-            <span class="v-pill">Collaboration</span>
-            <span class="v-pill">Leadership</span>
-            <span class="v-pill">Accessibility</span>
-            <span class="v-pill">Continuous Learning</span>
-            <span class="v-pill">Global Perspective</span>
-            <span class="v-pill">Real-World Impact</span>
+            <a href="/join.html" class="btn btn-ghost">Join Us &rarr;</a>
           </div>
         </div>
       </div>
@@ -275,89 +232,38 @@
       </div>
     </section>
 
-    <!-- ── Programs ── -->
-    <section id="programs" class="section section-alt">
+    <!-- ── Explore More ── -->
+    <section class="section section-alt">
       <div class="container">
-        <p class="label reveal">Competitions &amp; Programs</p>
-        <h2 class="s-head reveal">Where We've Competed</h2>
-        <p class="s-sub reveal">National and international competitions and programs across science, technology, engineering, and policy.</p>
-        <div class="grid-3">
+        <p class="label reveal">Find Out More</p>
+        <h2 class="s-head reveal">Explore Terra Reform</h2>
+        <p class="s-sub reveal">Learn about who we are, where we've competed, how to get involved, and how to reach us.</p>
+        <div class="explore-grid">
 
-          <div class="program-card reveal">
-            <p class="prog-n">01</p>
-            <h3>TEKNOFEST</h3>
-            <p>Turkey's largest technology and aerospace festival. Terra Reform has developed multiple engineering and technology projects — Safe Explorer, Braille Circuits, and AIR — for TEKNOFEST competitions.</p>
+          <div class="explore-card reveal">
+            <h3>About Us</h3>
+            <p>Our mission, vision, approach, and the core values that drive every project we build.</p>
+            <a href="/about.html" class="text-link">Learn More &rarr;</a>
           </div>
 
-          <div class="program-card reveal">
-            <p class="prog-n">02</p>
-            <h3>TÜBİTAK</h3>
-            <p>High school research project competitions by The Scientific and Technological Research Council of Turkey. Virtual Physics Laboratory was a Regional Finalist in the TÜBİTAK 2204-A competition.</p>
+          <div class="explore-card reveal">
+            <h3>Programs</h3>
+            <p>The national and international competitions and programs we've taken part in.</p>
+            <a href="/programs.html" class="text-link">View Programs &rarr;</a>
           </div>
 
-          <div class="program-card reveal">
-            <p class="prog-n">03</p>
-            <h3>CERN Beamline for Schools</h3>
-            <p>An international competition hosted by CERN inviting students to propose experiments using a real CERN particle beam, encouraging advanced physics and experimental design thinking.</p>
+          <div class="explore-card reveal">
+            <h3>Join Us</h3>
+            <p>Become part of an international student-led innovation network and start building.</p>
+            <a href="/join.html" class="text-link">Get Involved &rarr;</a>
           </div>
 
-          <div class="program-card reveal">
-            <p class="prog-n">04</p>
-            <h3>New York Academy of Sciences</h3>
-            <p>A Global STEM Alliance challenge series connecting student innovators internationally. Terra Reform developed the Solar-Powered School Microgrid project through the NYAS program.</p>
+          <div class="explore-card reveal">
+            <h3>Contact</h3>
+            <p>Have a question, an idea, or want to collaborate? Reach out to our team.</p>
+            <a href="/contact.html" class="text-link">Contact Us &rarr;</a>
           </div>
 
-          <div class="program-card reveal">
-            <p class="prog-n">05</p>
-            <h3>Büyük Ankara AI &amp; Climate Policy Workshop</h3>
-            <p>A policy-oriented program exploring the intersection of artificial intelligence, climate change, and governance — connecting student thinkers with real policy challenges.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Join ── -->
-    <section id="join" class="section">
-      <div class="container">
-        <div class="join-box reveal">
-          <p class="label">Get Involved</p>
-          <h2>Join Terra Reform</h2>
-          <p>Terra Reform welcomes motivated students interested in science, engineering, software development, research, and sustainability. Whether you're passionate about clean energy, robotics, accessibility, or scientific research — there's a place for you here.</p>
-          <p>We are an international initiative and welcome students from all backgrounds, disciplines, and countries.</p>
-          <a href="mailto:info@terra-reform.org" class="btn btn-green">Get In Touch</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Contact ── -->
-    <section id="contact" class="section section-alt">
-      <div class="container">
-        <p class="label reveal">Reach Out</p>
-        <h2 class="s-head reveal">Contact</h2>
-        <p class="s-sub reveal">Have a question, an idea, or want to collaborate?</p>
-        <div class="contact-grid">
-          <div class="contact-card reveal">
-            <h3>Email</h3>
-            <a href="mailto:info@terra-reform.org">info@terra-reform.org</a>
-          </div>
-          <div class="contact-card reveal">
-            <h3>Social Media</h3>
-            <div class="social-list">
-              <a href="#" class="social-row" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                <span>Instagram</span>
-              </a>
-              <a href="#" class="social-row" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                <span>LinkedIn</span>
-              </a>
-              <a href="#" class="social-row" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-                <span>GitHub</span>
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -373,11 +279,11 @@
           <span>Terra Reform</span>
         </div>
         <nav class="footer-nav" aria-label="Footer navigation">
-          <a href="#about">About</a>
+          <a href="/about.html">About</a>
           <a href="#projects">Projects</a>
-          <a href="#programs">Programs</a>
-          <a href="#join">Join Us</a>
-          <a href="#contact">Contact</a>
+          <a href="/programs.html">Programs</a>
+          <a href="/join.html">Join Us</a>
+          <a href="/contact.html">Contact</a>
         </nav>
       </div>
       <div class="footer-bottom">

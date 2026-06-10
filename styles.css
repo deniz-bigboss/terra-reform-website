@@ -111,6 +111,20 @@ a { color: inherit; text-decoration: none; }
     linear-gradient(to bottom, transparent 55%, var(--bg) 100%);
 }
 
+.hero-globe {
+  position: absolute; top: 50%; right: -160px;
+  transform: translateY(-50%);
+  width: 720px; height: 720px;
+  max-width: 60vw; max-height: 60vw;
+  pointer-events: none; z-index: 0;
+}
+@media (max-width: 1180px) {
+  .hero-globe { right: -240px; opacity: 0.6; }
+}
+@media (max-width: 860px) {
+  .hero-globe { display: none; }
+}
+
 .hero-inner { position: relative; z-index: 1; padding: 100px 0 120px; }
 
 .hero-badge {
@@ -313,6 +327,25 @@ a { color: inherit; text-decoration: none; }
 .prog-tag { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--green); }
 
 /* ─────────────────────────────────────────
+   Explore More (homepage page links)
+   ───────────────────────────────────────── */
+.explore-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+.explore-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px 24px;
+  display: flex; flex-direction: column; gap: 10px;
+  transition: all 0.25s var(--ease);
+}
+.explore-card:hover {
+  border-color: rgba(0,223,107,0.22);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.35), 0 0 0 1px rgba(0,223,107,0.07);
+}
+.explore-card h3 { font-size: 1.02rem; font-weight: 700; }
+.explore-card p { font-size: 0.87rem; color: var(--text-2); line-height: 1.6; flex: 1; }
+.explore-card .text-link { margin-top: 4px; }
+
+/* ─────────────────────────────────────────
    Programs
    ───────────────────────────────────────── */
 .program-card {
@@ -387,6 +420,34 @@ a { color: inherit; text-decoration: none; }
 .footer-bottom p, .footer-bottom a { font-size: 0.81rem; color: var(--text-2); }
 .footer-bottom a { transition: color 0.2s var(--ease); }
 .footer-bottom a:hover { color: var(--green); }
+
+/* ─────────────────────────────────────────
+   Generic Page Hero (About / Programs / Join / Contact)
+   ───────────────────────────────────────── */
+.page-hero {
+  padding: 88px 0 64px; position: relative; overflow: hidden;
+  background: var(--bg-1); border-bottom: 1px solid var(--border);
+}
+.page-hero::before {
+  content: ''; position: absolute; top: -100px; right: -100px;
+  width: 480px; height: 480px;
+  background: var(--green);
+  border-radius: 50%; opacity: 0.05; filter: blur(100px);
+  pointer-events: none;
+}
+.page-hero::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 28px 28px; pointer-events: none;
+}
+.page-hero .container { position: relative; z-index: 1; }
+.page-hero .label { margin-bottom: 14px; }
+.page-hero h1 {
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-weight: 800; letter-spacing: -0.03em;
+  margin-bottom: 16px; max-width: 720px;
+}
+.page-hero p { font-size: 1.05rem; color: var(--text-2); max-width: 640px; line-height: 1.7; }
 
 /* ─────────────────────────────────────────
    Project Pages
@@ -481,6 +542,7 @@ a { color: inherit; text-decoration: none; }
    ───────────────────────────────────────── */
 @media (max-width: 1024px) {
   .grid-3 { grid-template-columns: repeat(2,1fr); }
+  .explore-grid { grid-template-columns: repeat(2,1fr); }
   .proj-layout { grid-template-columns: 1fr; gap: 48px; }
   .proj-aside { position: static; flex-direction: row; flex-wrap: wrap; }
   .detail-card { flex: 1; min-width: 180px; }
@@ -490,6 +552,7 @@ a { color: inherit; text-decoration: none; }
    Responsive – 768px
    ───────────────────────────────────────── */
 @media (max-width: 768px) {
+  .explore-grid { grid-template-columns: 1fr; }
   .nav-burger { display: flex; }
   .nav-links {
     display: none; position: absolute;
