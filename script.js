@@ -3,6 +3,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const burger  = document.getElementById("navBurger");
   const links   = document.getElementById("navLinks");
 
+  // ── Theme toggle (dark default, light optional) ──
+  const SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+  const MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
+  const root = document.documentElement;
+  const applyTheme = (t) => {
+    if (t === "light") root.setAttribute("data-theme", "light");
+    else root.removeAttribute("data-theme");
+    if (themeBtn) themeBtn.innerHTML = t === "light" ? MOON : SUN;
+  };
+  const navInner = document.querySelector(".nav-inner");
+  let themeBtn = null;
+  if (navInner) {
+    themeBtn = document.createElement("button");
+    themeBtn.className = "theme-toggle";
+    themeBtn.setAttribute("aria-label", "Toggle color theme");
+    navInner.appendChild(themeBtn);
+    themeBtn.addEventListener("click", () => {
+      const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+      localStorage.setItem("tr-theme", next);
+      applyTheme(next);
+    });
+  }
+  applyTheme(localStorage.getItem("tr-theme") || "dark");
+
   // Navbar scroll shadow
   window.addEventListener("scroll", () => {
     nav && nav.classList.toggle("scrolled", window.scrollY > 40);

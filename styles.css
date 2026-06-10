@@ -879,3 +879,87 @@ a.tl-card:hover .text-link { letter-spacing: 0.4px; }
     margin-bottom: 6px;
   }
 }
+
+/* ─────────────────────────────────────────
+   Recognition strip
+   ───────────────────────────────────────── */
+.recog-strip {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-1);
+  padding: 26px 0;
+}
+.recog-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 18px 32px;
+}
+.recog-item { display: flex; flex-direction: column; gap: 3px; }
+.recog-k {
+  font-size: 0.68rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--green);
+}
+.recog-v { font-size: 0.92rem; font-weight: 600; color: var(--text); }
+
+/* ─────────────────────────────────────────
+   Newsletter
+   ───────────────────────────────────────── */
+.newsletter-form {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.newsletter-form input[type="email"] {
+  background: var(--bg-card);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  color: var(--text);
+  padding: 13px 18px;
+  font: inherit;
+  font-size: 0.95rem;
+  min-width: 280px;
+}
+.newsletter-form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--green);
+}
+
+/* ─────────────────────────────────────────
+   Light theme
+   ───────────────────────────────────────── */
+[data-theme="light"] {
+  --bg:        #f4f7fa;
+  --bg-1:      #eaeff5;
+  --bg-card:   #ffffff;
+  --bg-card-2: #f0f4f8;
+  --green:     #00a854;
+  --green-d:   #008c45;
+  --text:      #16222e;
+  --text-2:    #51626f;
+  --border:    rgba(10,30,50,0.10);
+  --border-2:  rgba(10,30,50,0.18);
+}
+[data-theme="light"] body { background: var(--bg); color: var(--text); }
+[data-theme="light"] .nav { background: rgba(244,247,250,0.92); }
+[data-theme="light"] .tl-line { background: rgba(10,30,50,0.12); }
+[data-theme="light"] .tl-dot { background: var(--bg-1); border-color: rgba(10,30,50,0.25); }
+[data-theme="light"] a.tl-card:hover { box-shadow: 0 14px 36px rgba(10,30,50,0.14); }
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border-2);
+  border-radius: 50%;
+  width: 36px; height: 36px;
+  margin-left: 24px;
+  cursor: pointer;
+  color: var(--text-2);
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: color 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+.theme-toggle:hover { color: var(--green); border-color: var(--green); }
+.theme-toggle svg { width: 17px; height: 17px; }
