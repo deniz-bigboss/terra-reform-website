@@ -749,3 +749,60 @@ a { color: inherit; text-decoration: none; }
   .hero h1 { letter-spacing: -0.025em; }
   .hero-ctas { flex-direction: column; align-items: flex-start; }
 }
+
+/* ─────────────────────────────────────────
+   Timeline
+   ───────────────────────────────────────── */
+.timeline {
+  position: relative;
+  max-width: 720px;
+  margin-top: 48px;
+  padding-left: 36px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px; top: 6px; bottom: 6px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--green), var(--border-2));
+}
+.tl-item {
+  position: relative;
+  padding-bottom: 36px;
+}
+.tl-item:last-child { padding-bottom: 0; }
+.tl-dot {
+  position: absolute;
+  left: -36px; top: 6px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--bg-1);
+  border: 2px solid var(--green);
+}
+.tl-date {
+  display: inline-block;
+  font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+.tl-card h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+.tl-card p {
+  color: var(--text-2);
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+.tl-milestone .tl-dot {
+  background: var(--green);
+  box-shadow: 0 0 0 5px rgba(0,223,107,0.15);
+}
+.tl-milestone .tl-card {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+}
