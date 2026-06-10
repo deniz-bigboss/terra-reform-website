@@ -176,3 +176,32 @@ document.addEventListener("DOMContentLoaded", () => {
     draw();
   }
 });
+
+/* ── Poster lightbox ───────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  const posters = document.querySelectorAll('.proj-poster img');
+  if (!posters.length) return;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox';
+  overlay.innerHTML = '<img alt="" /><button class="lightbox-close" aria-label="Close">&times;</button>';
+  document.body.appendChild(overlay);
+  const overlayImg = overlay.querySelector('img');
+
+  const close = () => {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  posters.forEach(img => {
+    img.closest('.proj-poster').addEventListener('click', () => {
+      overlayImg.src = img.src;
+      overlayImg.alt = img.alt;
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  overlay.addEventListener('click', close);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+});
