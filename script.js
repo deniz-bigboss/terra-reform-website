@@ -1,51 +1,178 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const navbar    = document.getElementById("navbar");
-  const navToggle = document.getElementById("navToggle");
-  const nav       = document.getElementById("nav");
+  const nav     = document.getElementById("mainNav");
+  const burger  = document.getElementById("navBurger");
+  const links   = document.getElementById("navLinks");
 
-  // Navbar shadow on scroll
+  // Navbar scroll shadow
   window.addEventListener("scroll", () => {
-    navbar.classList.toggle("scrolled", window.scrollY > 48);
+    nav && nav.classList.toggle("scrolled", window.scrollY > 40);
   }, { passive: true });
 
-  // Mobile nav toggle
-  navToggle.addEventListener("click", () => {
-    const isOpen = nav.classList.toggle("open");
-    navToggle.classList.toggle("open", isOpen);
-    navToggle.setAttribute("aria-expanded", isOpen);
-    navToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
-  });
-
-  // Close mobile nav on link click
-  nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("open");
-      navToggle.classList.remove("open");
-      navToggle.setAttribute("aria-expanded", "false");
-      navToggle.setAttribute("aria-label", "Open navigation");
+  // Mobile menu
+  if (burger && links) {
+    burger.addEventListener("click", () => {
+      const open = links.classList.toggle("open");
+      burger.classList.toggle("open", open);
+      burger.setAttribute("aria-expanded", open);
+      burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     });
-  });
+    links.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        links.classList.remove("open");
+        burger.classList.remove("open");
+        burger.setAttribute("aria-expanded", "false");
+        burger.setAttribute("aria-label", "Open menu");
+      });
+    });
+  }
 
   // Scroll reveal
-  const targets = document.querySelectorAll(
-    ".about-main, .about-block, .value-tag, .impact-card, .project-card, .program-item, .join-inner, .contact-block"
-  );
+  const els = document.querySelectorAll(".reveal");
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: "0px 0px -36px 0px" });
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
-  );
-
-  targets.forEach((el, i) => {
-    el.classList.add("reveal");
-    el.style.transitionDelay = `${Math.min(i % 6, 5) * 60}ms`;
-    observer.observe(el);
+  els.forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 6) * 55}ms`;
+    io.observe(el);
   });
+
+  // ── Interactive Globe (hero) ──
+  const canvas = document.getElementById("heroGlobe");
+  if (canvas && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const ctx = canvas.getContext("2d");
+    let w, h, dpr;
+
+    function resize() {
+      dpr = window.devicePixelRatio || 1;
+      w = canvas.clientWidth;
+      h = canvas.clientHeight;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    // Build a lat/long wireframe sphere of points
+    const RINGS = 12, SEGS = 22;
+    const points = [];
+    for (let i = 0; i <= RINGS; i++) {
+      const lat = (i / RINGS) * Math.PI - Math.PI / 2;
+      for (let j = 0; j < SEGS; j++) {
+        const lon = (j / SEGS) * Math.PI * 2;
+        points.push({
+          x: Math.cos(lat) * Math.cos(lon),
+          y: Math.sin(lat),
+          z: Math.cos(lat) * Math.sin(lon),
+        });
+      }
+    }
+
+    // A handful of "node" points representing global collaboration hubs
+    const nodeIdx = [12, 47, 88, 130, 165, 201, 238, 19, 102];
+    const nodes = nodeIdx.filter(i => i < points.length).map(i => points[i]);
+
+    let rotY = 0;
+    let baseTilt = 0.32;
+    let mouseX = 0, mouseY = 0;
+    let curTiltX = 0, curTiltY = 0;
+
+    window.addEventListener("mousemove", (e) => {
+      mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+      mouseY = (e.clientY / window.innerHeight) * 2 - 1;
+    });
+
+    function rotate(p, ry, rx) {
+      // rotate around Y axis
+      let x = p.x * Math.cos(ry) - p.z * Math.sin(ry);
+      let z = p.x * Math.sin(ry) + p.z * Math.cos(ry);
+      let y = p.y;
+      // rotate around X axis
+      let y2 = y * Math.cos(rx) - z * Math.sin(rx);
+      let z2 = y * Math.sin(rx) + z * Math.cos(rx);
+      return { x, y: y2, z: z2 };
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      const cx = w / 2, cy = h / 2;
+      const radius = Math.min(w, h) * 0.42;
+
+      rotY += 0.0018;
+      curTiltX += ((baseTilt + mouseY * 0.4) - curTiltX) * 0.04;
+      curTiltY += (mouseX * 0.5 - curTiltY) * 0.04;
+
+      const ry = rotY + curTiltY;
+      const rx = curTiltX;
+
+      // outer rim
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+      ctx.strokeStyle = "rgba(0,223,107,0.12)";
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      const projected = points.map(p => {
+        const r = rotate(p, ry, rx);
+        return {
+          x: cx + r.x * radius,
+          y: cy - r.y * radius,
+          z: r.z,
+        };
+      });
+
+      // grid points
+      projected.forEach(p => {
+        const depth = (p.z + 1) / 2; // 0..1
+        if (depth < 0.42) return; // hide far-side points
+        const size = 0.6 + depth * 1.6;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0,223,107,${0.08 + depth * 0.32})`;
+        ctx.fill();
+      });
+
+      // collaboration nodes + connecting lines
+      const projNodes = nodes.map(p => {
+        const r = rotate(p, ry, rx);
+        return { x: cx + r.x * radius, y: cy - r.y * radius, z: r.z };
+      });
+
+      for (let i = 0; i < projNodes.length; i++) {
+        for (let j = i + 1; j < projNodes.length; j++) {
+          const a = projNodes[i], b = projNodes[j];
+          if (a.z < 0.15 || b.z < 0.15) continue;
+          const d = Math.hypot(a.x - b.x, a.y - b.y);
+          if (d > radius * 0.95) continue;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(0,223,107,${0.12 * Math.min(a.z, b.z)})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+
+      projNodes.forEach(p => {
+        if (p.z < 0.1) return;
+        const depth = (p.z + 1) / 2;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 2.6 + depth * 2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${0.5 + depth * 0.5})`;
+        ctx.shadowColor = "#00df6b";
+        ctx.shadowBlur = 8;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      });
+
+      requestAnimationFrame(draw);
+    }
+    draw();
+  }
 });
