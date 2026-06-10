@@ -42,9 +42,9 @@
           <span class="p-tag cat">Engineering</span>
         </div>
         <h1>Autonomous Infantry Robot (AIR)</h1>
-        <p class="proj-sub">A humanoid robotics concept exploring remote operation and future autonomous functionality for deployment in dangerous environments, with applications in search and rescue, hazardous site inspection, and emergency response.</p>
+        <p class="proj-sub">A remotely operated humanoid robot concept — designed, simulated, and function-tested in a virtual environment — for deployment in dangerous situations, with proposed extensions into earthquake search and rescue and disaster management.</p>
         <div class="proj-status">
-          <span>&#9679;</span>&nbsp; Concept Development &middot; TÜBİTAK 2204-A
+          <span>&#9679;</span>&nbsp; Simulated Virtual Prototype &middot; TÜBİTAK 2204-A
         </div>
       </div>
     </section>
@@ -54,25 +54,28 @@
         <div class="proj-layout">
           <article class="proj-main">
             <h2>Overview</h2>
-            <p>The Autonomous Infantry Robot (AIR) project explores the design and operational architecture of a humanoid robot intended for use in environments that are too dangerous or inaccessible for human operators. The concept begins with remote operation — a human operator controls the robot from a safe distance using real-time telemetry and sensor feeds — and lays groundwork for future incremental autonomy.</p>
-            <p>The humanoid form factor is a deliberate choice: human environments — collapsed buildings, flooded corridors, uneven terrain — are designed for human bodies. A robot that can navigate these spaces without extensive environmental modification has a natural operational advantage in real emergency scenarios.</p>
+            <p>AIR (Askeri İnsansı Robot — Humanoid Military Robot) is a design and simulation project exploring a remotely operated humanoid robot for deployment in environments too dangerous for humans. Developed under the TÜBİTAK 2204-A "Technological Design" track, the project covers the robot's complete conceptual architecture — from component selection and block diagrams to a working virtual prototype built and tested in a Roblox-based simulation environment programmed in Lua.</p>
+            <p>The robot is operated from a remote control room by a trained team. A first-person (FPS-style) camera system, inspired by gaming interfaces, gives operators a real-time view from cameras placed on the robot's head and body, while a custom operator interface displays battery level, compass heading, and a live GPS map. The design also specifies the supporting hardware: a main control microcontroller, limb servos, GPS transmitter, audio input/output for communicating with people near the robot, gyroscope-assisted balance correction, and thermal monitoring.</p>
 
             <h2>Key Aspects</h2>
             <ul class="aspect-list">
-              <li>Humanoid robot platform design with focus on bipedal or multi-limbed locomotion</li>
-              <li>Remote operation system architecture with real-time video and sensor telemetry</li>
-              <li>Hazardous environment navigation — rubble, unstable terrain, confined spaces</li>
-              <li>Search and rescue application scenarios: locating survivors in disaster zones</li>
-              <li>Hazardous material handling and inspection without human exposure</li>
-              <li>Foundation architecture designed to support incremental autonomous decision-making</li>
+              <li>Full humanoid robot concept with remote operation architecture and wireless control link</li>
+              <li>Working virtual prototype built in a Roblox simulation environment, programmed in Lua</li>
+              <li>FPS-style camera system giving operators real-time first-person situational awareness</li>
+              <li>Custom operator interface with live battery indicator, compass, and GPS satellite map</li>
+              <li>Modular arm mounts designed to accept different equipment with minimal modification</li>
+              <li>Proposed production method: SLM (Selective Laser Melting) metal 3D printing for durable, cost-effective manufacturing</li>
+              <li>Simulation-verified functions: movement in all directions, 360° maneuverability, equipment handling, GPS tracking, and compass-guided "blind navigation" when cameras are unavailable</li>
             </ul>
 
-            <h2>Application Scenarios</h2>
-            <p>The primary intended use cases for AIR are environments where human presence creates unacceptable risk. Collapsed buildings following earthquakes, sites with chemical or radiological hazards, and active fires are examples where sending a remotely operated humanoid robot instead of a human responder could save lives — both the lives of potential victims the robot locates, and the lives of rescue workers who would otherwise be exposed.</p>
-            <p>The project does not claim current autonomous capability. The concept is grounded in remote operation as the near-term goal, with autonomous features considered as a research direction for future development phases.</p>
+            <h2>Testing &amp; Findings</h2>
+            <p>The team defined a set of operational questions — movement range, direction-finding, and function reliability — and answered them through experiments in a purpose-built simulation platform. The tests confirmed the robot's omnidirectional movement, equipment integration, FPS camera behaviour, GPS positioning, and compass functions, each verified individually through observation in the simulation. The report openly notes that simulation results cannot guarantee real-world field performance, and identifies cybersecurity hardening and AI-assisted perception as priority directions for future development.</p>
+
+            <h2>Beyond Defense: Disaster Response</h2>
+            <p>A significant part of the project explores adapting AIR for civilian disaster management — particularly earthquakes. With modified sensors, the robot could help locate survivors trapped under rubble, assess structural damage, deliver medicine and medical supplies, and operate alongside aerial drones in coordinated search and rescue operations — protecting both victims and rescue workers.</p>
 
             <h2>Program Context</h2>
-            <p>Developed for TÜBİTAK 2204-A, the High School Students Research Projects Competition organized by The Scientific and Technological Research Council of Turkey, where student teams design, build, or conceptually develop research and engineering projects across a range of application domains. The competition encourages ambitious technical thinking and engineering-focused project development.</p>
+            <p>Developed for the TÜBİTAK 2204-A High School Students Research Projects Competition in the Technological Design main field, under the National Technology Initiative thematic area. The full project report includes market analysis of autonomous robotics, component specifications, and an ethics discussion on the use of remotely operated systems.</p>
           </article>
 
           <aside class="proj-aside">
@@ -86,11 +89,11 @@
             </div>
             <div class="detail-card">
               <h3>Status</h3>
-              <p>Concept development — remote operation phase</p>
+              <p>Virtual prototype — designed and function-tested in simulation</p>
             </div>
             <div class="detail-card">
-              <h3>Form Factor</h3>
-              <p>Humanoid / multi-limbed mobile platform</p>
+              <h3>Technology</h3>
+              <p>Roblox simulation &middot; Lua &middot; FPS camera interface &middot; GPS &amp; compass navigation</p>
             </div>
             <div class="detail-card">
               <h3>Contact</h3>
