@@ -58,6 +58,7 @@
           <div class="contact-card reveal">
             <h3>Email</h3>
             <a href="mailto:info@terra-reform.org">info@terra-reform.org</a>
+            <p style="font-size: 0.8rem; color: var(--text-2); margin-top: 10px;">We typically reply within 2&ndash;3 days.</p>
           </div>
           <div class="contact-card reveal">
             <h3>Social Media</h3>
@@ -72,7 +73,45 @@
               </a>
             </div>
           </div>
+          <div class="contact-card reveal">
+            <h3>Reach Us Directly</h3>
+            <div class="social-list">
+              <a href="mailto:deniz@terra-reform.org">Deniz Yilmaz &mdash; deniz@terra-reform.org</a>
+              <a href="mailto:mahmut@terra-reform.org">Mahmut Kartal &mdash; mahmut@terra-reform.org</a>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <p class="label reveal">Write to Us</p>
+        <h2 class="s-head reveal">Send a Message</h2>
+        <p class="s-sub reveal">Questions, collaboration proposals, press, sponsorship — anything. It lands straight in our inbox.</p>
+        <form class="form-card reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="ct-name">Name</label>
+              <input type="text" id="ct-name" name="name" required autocomplete="name" />
+            </div>
+            <div class="form-field">
+              <label for="ct-email">Email</label>
+              <input type="email" id="ct-email" name="email" required autocomplete="email" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="ct-subject">Subject</label>
+            <input type="text" id="ct-subject" name="subject" />
+          </div>
+          <div class="form-field">
+            <label for="ct-message">Message</label>
+            <textarea id="ct-message" name="message" required></textarea>
+          </div>
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+          <button type="submit" class="btn btn-green">Send Message</button>
+          <p class="form-note">We typically reply within 2&ndash;3 days.</p>
+        </form>
       </div>
     </section>
 
