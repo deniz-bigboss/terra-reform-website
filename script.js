@@ -66,6 +66,34 @@ document.addEventListener("DOMContentLoaded", () => {
     io.observe(el);
   });
 
+  // ── Formspree forms: AJAX submit with inline success message ──
+  document.querySelectorAll('form[action*="formspree.io"]').forEach(form => {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      const original = btn ? btn.textContent : "";
+      if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+        if (!res.ok) throw new Error("send failed");
+        form.innerHTML = '<p class="form-success">&#10003;&nbsp; Thank you! Your message is on its way — we\'ll be in touch soon.</p>';
+      } catch {
+        if (btn) { btn.disabled = false; btn.textContent = original; }
+        let err = form.querySelector(".form-error");
+        if (!err) {
+          err = document.createElement("p");
+          err.className = "form-error";
+          form.appendChild(err);
+        }
+        err.textContent = "Something went wrong — please try again, or email us at info@terra-reform.org.";
+      }
+    });
+  });
+
   // ── Timeline: scroll-driven line fill + item lighting ──
   const tlTrack = document.getElementById("tlTrack");
   const tlFill = document.getElementById("tlFill");
