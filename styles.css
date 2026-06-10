@@ -545,6 +545,15 @@ a { color: inherit; text-decoration: none; }
   font-size: 0.8rem; color: var(--text-2);
 }
 
+.proj-hero-art {
+  position: absolute; top: 50%; right: 4%;
+  transform: translateY(-50%);
+  width: clamp(260px, 28vw, 380px); height: auto;
+  color: var(--c, #00df6b); opacity: 0.5;
+  pointer-events: none; z-index: 0;
+}
+@media (max-width: 900px) { .proj-hero-art { display: none; } }
+
 .proj-page-body { padding: 80px 0; }
 .proj-layout { display: grid; grid-template-columns: 1fr 300px; gap: 64px; align-items: start; }
 

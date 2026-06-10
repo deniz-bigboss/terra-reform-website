@@ -34,6 +34,47 @@
 
   <main>
     <section class="proj-hero" style="--c: #a855f7;">
+      <svg class="proj-hero-art" viewBox="0 0 360 360" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <!-- braille cell 1 (raised dots filled) -->
+        <rect x="50" y="50" width="70" height="100" rx="10" opacity="0.5" />
+        <circle cx="72" cy="76" r="7" fill="currentColor" stroke="none" />
+        <circle cx="98" cy="76" r="7" opacity="0.5" />
+        <circle cx="72" cy="100" r="7" fill="currentColor" stroke="none" />
+        <circle cx="98" cy="100" r="7" fill="currentColor" stroke="none" />
+        <circle cx="72" cy="124" r="7" opacity="0.5" />
+        <circle cx="98" cy="124" r="7" opacity="0.5" />
+        <!-- braille cell 2 -->
+        <rect x="150" y="50" width="70" height="100" rx="10" opacity="0.5" />
+        <circle cx="172" cy="76" r="7" fill="currentColor" stroke="none" />
+        <circle cx="198" cy="76" r="7" fill="currentColor" stroke="none" />
+        <circle cx="172" cy="100" r="7" opacity="0.5" />
+        <circle cx="198" cy="100" r="7" fill="currentColor" stroke="none" />
+        <circle cx="172" cy="124" r="7" opacity="0.5" />
+        <circle cx="198" cy="124" r="7" opacity="0.5" />
+        <!-- circuit traces from cells -->
+        <path d="M85 150 L85 190 L150 190" />
+        <path d="M185 150 L185 190" />
+        <circle cx="85" cy="190" r="3.5" fill="currentColor" stroke="none" />
+        <!-- battery symbol -->
+        <line x1="150" y1="178" x2="150" y2="202" stroke-width="2.5" />
+        <line x1="160" y1="184" x2="160" y2="196" />
+        <path d="M160 190 L185 190" />
+        <!-- resistor (zigzag) -->
+        <path d="M185 190 L185 220 L178 228 L192 236 L178 244 L192 252 L185 260 L185 276" />
+        <!-- LED -->
+        <circle cx="185" cy="294" r="16" />
+        <path d="M177 286 L193 294 L177 302 Z" />
+        <line x1="193" y1="286" x2="193" y2="302" />
+        <line x1="199" y1="276" x2="208" y2="267" opacity="0.7" />
+        <line x1="205" y1="284" x2="216" y2="278" opacity="0.7" />
+        <!-- return trace -->
+        <path d="M185 310 L185 330 L85 330 L85 206" stroke-dasharray="5 5" opacity="0.6" />
+        <!-- speaker / audio feedback -->
+        <path d="M262 180 L278 180 L296 164 L296 220 L278 204 L262 204 Z" />
+        <path d="M308 178 A18 18 0 0 1 308 206" opacity="0.7" />
+        <path d="M318 168 A30 30 0 0 1 318 216" opacity="0.4" />
+        <path d="M220 192 L262 192" stroke-dasharray="5 5" opacity="0.6" />
+      </svg>
       <div class="container">
         <a href="/#projects" class="back-link">&larr; Back to Projects</a>
         <div class="proj-meta">
