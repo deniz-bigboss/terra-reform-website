@@ -386,7 +386,16 @@ a { color: inherit; text-decoration: none; }
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
   font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem;
   background: rgba(0,223,107,0.1); border: 1px solid rgba(0,223,107,0.22); color: var(--green);
+  overflow: hidden;
 }
+.team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.team-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 6px; font-size: 0.8rem; color: var(--text-2);
+  transition: color 0.2s var(--ease);
+}
+.team-link:hover { color: var(--green); }
+.team-link svg { width: 14px; height: 14px; }
 .team-name { font-size: 1.15rem; font-weight: 700; }
 .team-role { font-size: 0.84rem; color: var(--text-2); margin-top: 2px; }
 .team-bio p { font-size: 0.97rem; color: var(--text-2); line-height: 1.75; margin-bottom: 14px; }
