@@ -399,6 +399,9 @@ a { color: inherit; text-decoration: none; }
 .team-name { font-size: 1.15rem; font-weight: 700; }
 .team-role { font-size: 0.84rem; color: var(--text-2); margin-top: 2px; }
 .team-bio p { font-size: 0.97rem; color: var(--text-2); line-height: 1.75; margin-bottom: 14px; }
+.team-projects { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.team-projects .p-tag { transition: border-color 0.2s var(--ease), color 0.2s var(--ease); }
+.team-projects .p-tag:hover { color: var(--green); border-color: rgba(0,223,107,0.4); }
 .team-bio p:last-child { margin-bottom: 0; }
 
 /* ─────────────────────────────────────────
