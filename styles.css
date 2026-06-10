@@ -346,6 +346,28 @@ a { color: inherit; text-decoration: none; }
 .explore-card .text-link { margin-top: 4px; }
 
 /* ─────────────────────────────────────────
+   Team / Founders
+   ───────────────────────────────────────── */
+.team-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; align-items: start; }
+.team-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 32px;
+  transition: all 0.25s var(--ease);
+}
+.team-card:hover { border-color: rgba(0,223,107,0.18); }
+.team-head { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+.team-avatar {
+  width: 56px; height: 56px; flex-shrink: 0;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem;
+  background: rgba(0,223,107,0.1); border: 1px solid rgba(0,223,107,0.22); color: var(--green);
+}
+.team-name { font-size: 1.15rem; font-weight: 700; }
+.team-role { font-size: 0.84rem; color: var(--text-2); margin-top: 2px; }
+.team-bio p { font-size: 0.93rem; color: var(--text-2); line-height: 1.75; margin-bottom: 14px; }
+.team-bio p:last-child { margin-bottom: 0; }
+
+/* ─────────────────────────────────────────
    Programs
    ───────────────────────────────────────── */
 .program-card {
@@ -553,6 +575,7 @@ a { color: inherit; text-decoration: none; }
    ───────────────────────────────────────── */
 @media (max-width: 768px) {
   .explore-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
   .nav-burger { display: flex; }
   .nav-links {
     display: none; position: absolute;
