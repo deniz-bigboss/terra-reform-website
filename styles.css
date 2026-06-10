@@ -963,3 +963,22 @@ a.tl-card:hover .text-link { letter-spacing: 0.4px; }
 }
 .theme-toggle:hover { color: var(--green); border-color: var(--green); }
 .theme-toggle svg { width: 17px; height: 17px; }
+
+/* Light theme: fix hardcoded whites */
+[data-theme="light"] .hero h1 {
+  background: linear-gradient(138deg, #16222e 45%, #00a854 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+[data-theme="light"] .h-stat-n { color: var(--text); }
+[data-theme="light"] .proj-cat { color: rgba(10,30,50,0.45); }
+[data-theme="light"] .more-icon { color: var(--text); }
+[data-theme="light"] .hero-grid {
+  background-image: radial-gradient(circle, rgba(10,30,50,0.10) 1px, transparent 1px);
+}
+[data-theme="light"] .page-hero,
+[data-theme="light"] .proj-hero {
+  background-image:
+    linear-gradient(rgba(10,30,50,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,30,50,0.05) 1px, transparent 1px);
+}
