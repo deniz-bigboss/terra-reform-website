@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanal Fizik Laboratuvarı | Terra Reform</title>
+  <meta name="description" content="Pratik fen eğitimini daha erişilebilir hale getirmek için tasarlanmış, Roblox tabanlı interaktif bir sanal fizik laboratuvarı. TÜBİTAK 2204-A Bölge Finalisti." />
+  <meta property="og:title" content="Sanal Fizik Laboratuvarı | Terra Reform" />
+  <meta property="og:description" content="Pratik fen eğitimini daha erişilebilir hale getirmek için tasarlanmış, Roblox tabanlı interaktif bir sanal fizik laboratuvarı. TÜBİTAK 2204-A Bölge Finalisti." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://terra-reform.org/tr/projects/virtual-physics-lab.html" />
+  <meta property="og:image" content="https://terra-reform.org/assets/og-banner.png" />
+  <meta property="og:image:alt" content="Terra Reform — öğrenci öncülüğünde bilim ve teknoloji inovasyonu" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sanal Fizik Laboratuvarı | Terra Reform" />
+  <meta name="twitter:description" content="Pratik fen eğitimini daha erişilebilir hale getirmek için tasarlanmış, Roblox tabanlı interaktif bir sanal fizik laboratuvarı. TÜBİTAK 2204-A Bölge Finalisti." />
+  <meta name="twitter:image" content="https://terra-reform.org/assets/og-banner.png" />
+  <link rel="canonical" href="https://terra-reform.org/tr/projects/virtual-physics-lab.html" />
+  <link rel="alternate" hreflang="en" href="https://terra-reform.org/projects/virtual-physics-lab.html" />
+  <link rel="alternate" hreflang="tr" href="https://terra-reform.org/tr/projects/virtual-physics-lab.html" />
+  <link rel="alternate" hreflang="x-default" href="https://terra-reform.org/projects/virtual-physics-lab.html" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/jpeg" href="/assets/favicon.jpg" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body>
+
+  <header class="nav" id="mainNav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/tr/">
+        <img src="../../assets/terra-reform-logo.jpg" alt="Terra Reform" />
+        <span>Terra Reform</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="/tr/about.html">Hakkımızda</a>
+        <a href="/tr/#projects">Projeler</a>
+        <a href="/tr/programs.html">Programlar</a>
+        <a href="/tr/news.html">Haberler</a>
+        <a href="/tr/join.html">Katıl</a>
+        <a href="/tr/contact.html">İletişim</a>
+      </nav>
+      <button class="nav-burger" id="navBurger" aria-label="Menüyü aç" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="proj-hero" style="--c: #f59e0b;">
+      <svg class="proj-hero-art" viewBox="0 0 360 360" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <!-- atom -->
+        <circle cx="220" cy="120" r="6" fill="currentColor" stroke="none" />
+        <ellipse cx="220" cy="120" rx="78" ry="30" opacity="0.6" />
+        <ellipse cx="220" cy="120" rx="78" ry="30" transform="rotate(60 220 120)" opacity="0.6" />
+        <ellipse cx="220" cy="120" rx="78" ry="30" transform="rotate(-60 220 120)" opacity="0.6" />
+        <circle cx="294" cy="135" r="4" fill="currentColor" stroke="none" />
+        <circle cx="185" cy="58" r="4" fill="currentColor" stroke="none" />
+        <!-- pendulum -->
+        <line x1="60" y1="50" x2="110" y2="50" />
+        <line x1="85" y1="50" x2="60" y2="150" stroke-dasharray="5 5" opacity="0.5" />
+        <line x1="85" y1="50" x2="85" y2="155" opacity="0.4" />
+        <line x1="85" y1="50" x2="112" y2="148" />
+        <circle cx="115" cy="158" r="11" />
+        <path d="M62 150 A 100 100 0 0 0 110 156" opacity="0.4" stroke-dasharray="3 5" />
+        <!-- flask -->
+        <path d="M150 230 L150 258 L128 304 A8 8 0 0 0 135 314 L185 314 A8 8 0 0 0 192 304 L170 258 L170 230" />
+        <line x1="144" y1="230" x2="176" y2="230" />
+        <line x1="138" y1="284" x2="182" y2="284" opacity="0.6" />
+        <circle cx="152" cy="298" r="3" opacity="0.7" />
+        <circle cx="166" cy="294" r="2.5" opacity="0.7" />
+        <!-- inclined plane: F = ma -->
+        <path d="M230 318 L330 318 L330 250 Z" />
+        <rect x="270" y="276" width="22" height="16" rx="2" transform="rotate(34 281 284)" />
+        <line x1="296" y1="262" x2="324" y2="244" marker-end="none" />
+        <path d="M324 244 L316 246 M324 244 L322 252" />
+        <!-- grid hint -->
+        <line x1="40" y1="345" x2="330" y2="345" stroke-dasharray="4 8" opacity="0.35" />
+      </svg>
+      <div class="container">
+        <a href="/tr/#projects" class="back-link">&larr; Projelere Dön</a>
+        <div class="proj-meta">
+          <span class="p-tag prog">TEKNOFEST</span>
+          <span class="p-tag prog">TÜBİTAK 2204-A</span>
+          <span class="p-tag cat">Eğitim</span>
+          <span class="p-tag cat">Yazılım</span>
+        </div>
+        <h1>Sanal Fizik Laboratuvarı</h1>
+        <p class="proj-sub">Birden fazla fizik konusunu kapsayan interaktif simülasyonlar aracılığıyla pratik fen eğitimini daha erişilebilir hale getirmek için tasarlanmış, Roblox tabanlı interaktif bir sanal fizik laboratuvarı. TEKNOFEST için geliştirildi ve TÜBİTAK 2204-A Lise Öğrencileri Araştırma Projeleri Yarışması'nda Bölge Finalisti oldu.</p>
+        <div class="proj-status">
+          <span>&#9679;</span>&nbsp; Bölge Finalisti &middot; TÜBİTAK 2204-A
+        </div>
+      </div>
+    </section>
+
+    <section class="proj-page-body">
+      <div class="container">
+        <div class="proj-layout">
+          <article class="proj-main">
+            <h2>Genel Bakış</h2>
+            <p>Sanal Fizik Laboratuvarı, Roblox platformu üzerine inşa edilmiş, fiziksel laboratuvarların bulunmadığı durumlarda öğrencilere uygulamalı deney deneyimi kazandırmak için tasarlanmış interaktif bir simülasyon ortamıdır — ister COVID-19 pandemisinde olduğu gibi uzaktan eğitim, ister yetersiz kaynaklara sahip okullar nedeniyle, isterse yalnızca fiziğe olan ilgisini kaybetmiş öğrencileri yeniden kazanmak için. Genç öğrencilerin zaten kullandığı bir platform olan Roblox üzerine inşa edilen laboratuvar ücretsizdir, özel bir yazılım gerektirmez ve hemen hemen her akıllı cihazdan erişilebilir.</p>
+            <p>Konular bilimsel olarak seçildi: ekip, yaklaşık 100 11. ve 12. sınıf öğrencisine her bir 9. ve 10. sınıf fizik konusunu ne kadar iyi anladıklarını sordu ve en düşük anlama puanına sahip altı konu için özel laboratuvar odaları inşa etti. Proje, TÜBİTAK 2204-A Lise Öğrencileri Araştırma Projeleri Yarışması'nda Bölge Finalisti oldu.</p>
+
+            <h2>Altı Laboratuvar</h2>
+            <ul class="aspect-list">
+              <li><strong>Elektroskop</strong> — öğrenciler yüklü çubukları sekiz farklı yüklü elektroskoba yaklaştırır veya temas ettirir ve yapraklarının ve nihai yüklerinin animasyonlarla nasıl tepki verdiğini izler</li>
+              <li><strong>Elektriklenme Türleri</strong> — sürtünme (ebonit/yün, cam/ipek), temas ve indüksiyon yoluyla yüklenme ve sonuçta oluşan yüklerin gösterilmesi</li>
+              <li><strong>İletkenlerde Yük Dağılımı</strong> — yüzey yük davranışı ve çalışan bir Faraday kafesi gösterimi</li>
+              <li><strong>Basıncın Hal Değişimine Etkisi</strong> — farklı rakımlarda kaynama noktaları ve basınç altında erime, suyun anormal davranışı dahil</li>
+              <li><strong>Newton'un İkinci Yasası</strong> — kuvvet, kütle ve ivme ilişkilerini gözlemlemek için sürtünmeli ve sürtünmesiz ortamlarda hareket eden cisimler</li>
+              <li><strong>Akışkan Basıncı</strong> — yüksek basınçtan düşük basınca hareketi gösteren, farklı kesitli borulardan akış modeli</li>
+            </ul>
+
+            <h2>Test ve Sonuçlar</h2>
+            <p>Gerçek öğrenme etkisini ölçmek için laboratuvar, ebeveyn izni ve ilçe milli eğitim müdürlüğü onayıyla, iki ders saati boyunca on 11. sınıf öğrencisiyle (beşi fen lisesinden, beşi Anadolu lisesinden; beşi kız, beşi erkek) test edildi. Öğrenciler, deneyimden önce ve sonra her laboratuvar konusu için bir soru cevapladı. Doğru cevap oranları her konuda arttı — altı sorudan üçünde %100'e ulaştı — ve sanal laboratuvar oturumundan sonra iki okul türü arasındaki fark ortadan kalktı.</p>
+            <p>Verilerden çarpıcı bir detay ortaya çıktı: en küçük iyileşme, öğrencilerin etkileşime girmek yerine pasif olarak bir modeli izlediği tek laboratuvarda gerçekleşti — bu da aktif öğrenci katılımının sanal laboratuvarları etkili kılan şey olduğu sonucunu destekliyor. Ekibin hipotezi — sanal laboratuvarların öğrencilerin kötü anlaşılan konuları öğrenmesine yardımcı olduğu ve öğrenilen konuları pekiştirdiği — desteklendi ve bulgular sanal laboratuvarları eğitimde fırsat eşitliği için bir araç olarak işaret ediyor.</p>
+
+            <h2>Yarışma Bağlamı</h2>
+            <p>TÜBİTAK 2204-A, Türkiye Bilimsel ve Teknolojik Araştırma Kurumu tarafından düzenlenen, Fizik ana alanında ve Dijital Oyun Tasarımı tematik alanıyla katılınan ulusal lise öğrencileri araştırma projeleri yarışmasıdır. Sanal Fizik Laboratuvarı Bölge Finalisti statüsüne ulaştı ve laboratuvar Roblox üzerinde ziyaretçilere açık kalmaya devam ediyor.</p>
+          </article>
+
+          <aside class="proj-aside">
+            <div class="proj-poster">
+              <img src="../../assets/poster-virtual-physics-lab.jpg" alt="Sanal Fizik Laboratuvarı genel görünümü" loading="lazy" />
+            </div>
+            <p class="proj-poster-cap">Proje genel görünümü</p>
+            <div class="detail-card">
+              <h3>Program</h3>
+              <p>TEKNOFEST &amp; TÜBİTAK 2204-A &mdash; Lise Öğrencileri Araştırma Projeleri Yarışması</p>
+            </div>
+            <div class="detail-card">
+              <h3>Başarı</h3>
+              <p>Bölge Finalisti</p>
+            </div>
+            <div class="detail-card">
+              <h3>Kategori</h3>
+              <p>Eğitim &middot; Yazılım &middot; Simülasyon</p>
+            </div>
+            <div class="detail-card">
+              <h3>Platform</h3>
+              <p>Roblox</p>
+            </div>
+            <div class="detail-card">
+              <h3>İletişim</h3>
+              <a href="mailto:info@terra-reform.org">info@terra-reform.org</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="../../assets/terra-reform-logo.jpg" alt="Terra Reform" />
+          <span>Terra Reform</span>
+        </div>
+        <nav class="footer-nav">
+          <a href="/tr/about.html">Hakkımızda</a>
+          <a href="/tr/#projects">Projeler</a>
+          <a href="/tr/programs.html">Programlar</a>
+          <a href="/tr/news.html">Haberler</a>
+          <a href="/tr/join.html">Katıl</a>
+          <a href="/tr/contact.html">İletişim</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Terra Reform. Gerçek dünya sorunları için öğrenci öncülüğünde inovasyon. &middot; <a href="/tr/privacy.html">Gizlilik</a></p>
+        <a href="mailto:info@terra-reform.org">info@terra-reform.org</a>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/terrareform/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/reform-terra/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../script.js"></script>
+  <script data-goatcounter="https://deniz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

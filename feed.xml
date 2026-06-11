@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Terra Reform News</title>
+  <link>https://terra-reform.org/news.html</link>
+  <atom:link href="https://terra-reform.org/feed.xml" rel="self" type="application/rss+xml" />
+  <description>Updates from Terra Reform — new projects, competition results, and milestones.</description>
+  <language>en</language>
+
+  <item>
+    <title>terra-reform.org Gets a Major Upgrade</title>
+    <link>https://terra-reform.org/news.html</link>
+    <guid isPermaLink="false">tr-2026-06-site-upgrade</guid>
+    <pubDate>Wed, 10 Jun 2026 12:00:00 GMT</pubDate>
+    <description>Our website now features an interactive project timeline, a recognition overview, working contact and application forms, light and dark themes, and a newsletter.</description>
+  </item>
+
+  <item>
+    <title>Solar-Powered School Microgrids Initiative Kicks Off</title>
+    <link>https://terra-reform.org/projects/solar-microgrid.html</link>
+    <guid isPermaLink="false">tr-2025-12-microgrid</guid>
+    <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
+    <description>Our newest project, developed through the New York Academy of Sciences challenge program, investigates how solar generation, battery storage, and smart energy management can turn schools into clean energy hubs.</description>
+  </item>
+
+  <item>
+    <title>Superconductor Research Proposal Submitted to CERN BL4S</title>
+    <link>https://terra-reform.org/projects/cern-bl4s.html</link>
+    <guid isPermaLink="false">tr-2025-05-bl4s</guid>
+    <pubDate>Thu, 01 May 2025 12:00:00 GMT</pubDate>
+    <description>Team Spartacus completed "Superconductivity Preservation in NbN Thin Films: The Role of Lead Coating Under Proton Irradiation" and submitted it to the CERN Beamline for Schools 2025 competition.</description>
+  </item>
+
+  <item>
+    <title>Two Projects Head to TEKNOFEST</title>
+    <link>https://terra-reform.org/projects/braille-circuits.html</link>
+    <guid isPermaLink="false">tr-2024-02-teknofest</guid>
+    <pubDate>Thu, 01 Feb 2024 12:00:00 GMT</pubDate>
+    <description>Braille Circuits and Safe Explorer both completed their development cycles for TEKNOFEST competitions.</description>
+  </item>
+
+  <item>
+    <title>Virtual Physics Laboratory Named TÜBİTAK 2204-A Regional Finalist</title>
+    <link>https://terra-reform.org/projects/virtual-physics-lab.html</link>
+    <guid isPermaLink="false">tr-2023-02-vpl</guid>
+    <pubDate>Wed, 01 Feb 2023 12:00:00 GMT</pubDate>
+    <description>Our Roblox-based virtual physics laboratory earned Regional Finalist status in the TÜBİTAK 2204-A High School Research Projects Competition.</description>
+  </item>
+
+  <item>
+    <title>Terra Reform Is Born</title>
+    <link>https://terra-reform.org/about.html</link>
+    <guid isPermaLink="false">tr-2022-09-founding</guid>
+    <pubDate>Thu, 01 Sep 2022 12:00:00 GMT</pubDate>
+    <description>A group of students with a shared passion for science, technology, and societal impact founded Terra Reform.</description>
+  </item>
+
+</channel>
+</rss>

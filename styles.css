@@ -964,6 +964,25 @@ a.tl-card:hover .text-link { letter-spacing: 0.4px; }
 .theme-toggle:hover { color: var(--green); border-color: var(--green); }
 .theme-toggle svg { width: 17px; height: 17px; }
 
+.lang-toggle {
+  background: none;
+  border: 1px solid var(--border-2);
+  border-radius: 999px;
+  height: 36px;
+  padding: 0 12px;
+  margin-left: 12px;
+  cursor: pointer;
+  color: var(--text-2);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: color 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+.lang-toggle:hover { color: var(--green); border-color: var(--green); }
+
 /* Light theme: fix hardcoded whites */
 [data-theme="light"] .hero h1 {
   background: linear-gradient(138deg, #16222e 45%, #00a854 100%);
@@ -1025,4 +1044,15 @@ a.tl-card:hover .text-link { letter-spacing: 0.4px; }
   color: #ef4444;
   font-size: 0.85rem;
   margin-top: 10px;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal, .tl-item { opacity: 1 !important; transform: none !important; }
 }
