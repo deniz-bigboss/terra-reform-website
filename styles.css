@@ -291,7 +291,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .proj-thumb {
-  height: 132px; position: relative; overflow: hidden;
+  height: 180px; position: relative; overflow: hidden;
   background-image:
     linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
@@ -303,6 +303,7 @@ a { color: inherit; text-decoration: none; }
   content: '';
   position: absolute; top: 0; left: 0; right: 0;
   height: 2px; background: var(--c, var(--green));
+  z-index: 1;
 }
 .proj-thumb::before {
   content: '';
@@ -313,10 +314,10 @@ a { color: inherit; text-decoration: none; }
   filter: blur(40px);
 }
 .proj-cat {
-  position: absolute; bottom: 12px; left: 18px;
+  display: block;
   font-size: 0.67rem; font-weight: 600;
   text-transform: uppercase; letter-spacing: 1.5px;
-  color: rgba(255,255,255,0.3);
+  color: var(--green); margin-bottom: 8px;
 }
 .proj-body-c { padding: 22px; display: flex; flex-direction: column; flex: 1; }
 .proj-body-c h3 { font-size: 1.03rem; font-weight: 700; margin-bottom: 10px; line-height: 1.35; }
@@ -990,7 +991,7 @@ a.tl-card:hover .text-link { letter-spacing: 0.4px; }
   background-clip: text;
 }
 [data-theme="light"] .h-stat-n { color: var(--text); }
-[data-theme="light"] .proj-cat { color: rgba(10,30,50,0.45); }
+[data-theme="light"] .proj-cat { color: var(--green-d); }
 [data-theme="light"] .more-icon { color: var(--text); }
 [data-theme="light"] .hero-grid {
   background-image: radial-gradient(circle, rgba(10,30,50,0.10) 1px, transparent 1px);
@@ -1007,15 +1008,7 @@ a.tl-card:hover .text-link { letter-spacing: 0.4px; }
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover; object-position: top;
-  opacity: 0.85;
 }
-.proj-thumb::after {
-  content: "";
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(3,8,15,0.85), transparent 60%);
-}
-.proj-thumb .proj-cat { z-index: 1; color: rgba(255,255,255,0.75); }
-[data-theme="light"] .proj-thumb .proj-cat { color: rgba(255,255,255,0.85); }
 
 /* ── News page ── */
 .news-list { max-width: 760px; display: flex; flex-direction: column; gap: 28px; }
