@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Otonom Piyade Robotu (AIR) | Terra Reform</title>
+  <meta name="description" content="Arama kurtarma ve tehlikeli ortam uygulamaları için uzaktan kumanda ve gelecekteki otonom işlevselliği araştıran bir insansı robotik konsepti." />
+  <meta property="og:title" content="Otonom Piyade Robotu (AIR) | Terra Reform" />
+  <meta property="og:description" content="Arama kurtarma ve tehlikeli ortam uygulamaları için uzaktan kumanda ve gelecekteki otonom işlevselliği araştıran bir insansı robotik konsepti." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://terra-reform.org/tr/projects/air.html" />
+  <meta property="og:image" content="https://terra-reform.org/assets/og-banner.png" />
+  <meta property="og:image:alt" content="Terra Reform — öğrenci öncülüğünde bilim ve teknoloji inovasyonu" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Otonom Piyade Robotu (AIR) | Terra Reform" />
+  <meta name="twitter:description" content="Arama kurtarma ve tehlikeli ortam uygulamaları için uzaktan kumanda ve gelecekteki otonom işlevselliği araştıran bir insansı robotik konsepti." />
+  <meta name="twitter:image" content="https://terra-reform.org/assets/og-banner.png" />
+  <link rel="canonical" href="https://terra-reform.org/tr/projects/air.html" />
+  <link rel="alternate" hreflang="en" href="https://terra-reform.org/projects/air.html" />
+  <link rel="alternate" hreflang="tr" href="https://terra-reform.org/tr/projects/air.html" />
+  <link rel="alternate" hreflang="x-default" href="https://terra-reform.org/projects/air.html" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/jpeg" href="/assets/favicon.jpg" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body>
+
+  <header class="nav" id="mainNav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/tr/">
+        <img src="../../assets/terra-reform-logo.jpg" alt="Terra Reform" />
+        <span>Terra Reform</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="/tr/about.html">Hakkımızda</a>
+        <a href="/tr/#projects">Projeler</a>
+        <a href="/tr/programs.html">Programlar</a>
+        <a href="/tr/news.html">Haberler</a>
+        <a href="/tr/join.html">Katıl</a>
+        <a href="/tr/contact.html">İletişim</a>
+      </nav>
+      <button class="nav-burger" id="navBurger" aria-label="Menüyü aç" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="proj-hero" style="--c: #06b6d4;">
+      <svg class="proj-hero-art" viewBox="0 0 360 360" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <!-- head -->
+        <rect x="160" y="40" width="40" height="36" rx="6" />
+        <line x1="170" y1="58" x2="190" y2="58" opacity="0.7" />
+        <!-- antenna + signal arcs -->
+        <line x1="180" y1="40" x2="180" y2="24" />
+        <path d="M164 18 A22 22 0 0 1 196 18" opacity="0.6" />
+        <path d="M154 8 A34 34 0 0 1 206 8" opacity="0.35" />
+        <!-- torso -->
+        <rect x="146" y="84" width="68" height="84" rx="8" />
+        <circle cx="180" cy="112" r="12" opacity="0.7" />
+        <line x1="156" y1="146" x2="204" y2="146" opacity="0.4" />
+        <line x1="156" y1="156" x2="190" y2="156" opacity="0.4" />
+        <!-- shoulders / arms -->
+        <circle cx="134" cy="96" r="8" />
+        <circle cx="226" cy="96" r="8" />
+        <line x1="130" y1="104" x2="118" y2="150" />
+        <circle cx="116" cy="158" r="6" />
+        <line x1="114" y1="166" x2="106" y2="206" />
+        <rect x="98" y="206" width="16" height="18" rx="3" />
+        <line x1="230" y1="104" x2="242" y2="150" />
+        <circle cx="244" cy="158" r="6" />
+        <line x1="246" y1="166" x2="254" y2="206" />
+        <rect x="246" y="206" width="16" height="18" rx="3" />
+        <!-- hips / legs -->
+        <rect x="158" y="168" width="44" height="20" rx="5" />
+        <circle cx="168" cy="196" r="7" />
+        <circle cx="192" cy="196" r="7" />
+        <line x1="166" y1="203" x2="160" y2="252" />
+        <line x1="194" y1="203" x2="200" y2="252" />
+        <circle cx="159" cy="259" r="6" />
+        <circle cx="201" cy="259" r="6" />
+        <line x1="158" y1="266" x2="154" y2="308" />
+        <line x1="202" y1="266" x2="206" y2="308" />
+        <rect x="140" y="308" width="28" height="12" rx="3" />
+        <rect x="192" y="308" width="28" height="12" rx="3" />
+        <!-- ground reference -->
+        <line x1="90" y1="330" x2="270" y2="330" stroke-dasharray="4 8" opacity="0.4" />
+      </svg>
+      <div class="container">
+        <a href="/tr/#projects" class="back-link">&larr; Projelere Dön</a>
+        <div class="proj-meta">
+          <span class="p-tag prog">TÜBİTAK 2204-A</span>
+          <span class="p-tag cat">Robotik</span>
+          <span class="p-tag cat">Mühendislik</span>
+        </div>
+        <h1>Otonom Piyade Robotu (AIR)</h1>
+        <p class="proj-sub">Tehlikeli durumlarda görev alması için tasarlanmış, sanal ortamda tasarlanan, simüle edilen ve işlev testlerinden geçirilen uzaktan kumandalı bir insansı robot konsepti — deprem arama kurtarma ve afet yönetimi alanlarına yönelik genişletme önerileriyle birlikte.</p>
+        <div class="proj-status">
+          <span>&#9679;</span>&nbsp; Simüle Edilmiş Sanal Prototip &middot; TÜBİTAK 2204-A
+        </div>
+      </div>
+    </section>
+
+    <section class="proj-page-body">
+      <div class="container">
+        <div class="proj-layout">
+          <article class="proj-main">
+            <h2>Genel Bakış</h2>
+            <p>AIR (Askeri İnsansı Robot), insanlar için fazla tehlikeli olan ortamlarda görev yapacak uzaktan kumandalı bir insansı robotu araştıran bir tasarım ve simülasyon projesidir. TÜBİTAK 2204-A "Teknolojik Tasarım" alanında geliştirilen proje, robotun eksiksiz kavramsal mimarisini kapsıyor — bileşen seçimi ve blok diyagramlarından, Lua ile programlanmış Roblox tabanlı bir simülasyon ortamında inşa edilip test edilen çalışan bir sanal prototipe kadar.</p>
+            <p>Robot, eğitimli bir ekip tarafından uzaktaki bir kontrol odasından yönetiliyor. Oyun arayüzlerinden esinlenen birinci şahıs (FPS tarzı) kamera sistemi, robotun kafasına ve gövdesine yerleştirilen kameralardan operatörlere gerçek zamanlı görüntü sunarken, özel olarak tasarlanan operatör arayüzü pil seviyesini, pusula yönünü ve canlı bir GPS haritasını gösteriyor. Tasarım ayrıca destekleyici donanımı da tanımlıyor: ana kontrol mikrodenetleyicisi, uzuv servoları, GPS vericisi, robotun yakınındaki insanlarla iletişim için ses giriş/çıkışı, jiroskop destekli denge düzeltme ve termal izleme.</p>
+
+            <h2>Öne Çıkan Özellikler</h2>
+            <ul class="aspect-list">
+              <li>Uzaktan kumanda mimarisi ve kablosuz kontrol bağlantısına sahip eksiksiz bir insansı robot konsepti</li>
+              <li>Lua ile programlanmış, Roblox simülasyon ortamında inşa edilen çalışan sanal prototip</li>
+              <li>Operatörlere gerçek zamanlı birinci şahıs durumsal farkındalık sağlayan FPS tarzı kamera sistemi</li>
+              <li>Canlı pil göstergesi, pusula ve GPS uydu haritası içeren özel operatör arayüzü</li>
+              <li>Minimum değişiklikle farklı ekipmanları kabul edecek şekilde tasarlanan modüler kol bağlantıları</li>
+              <li>Önerilen üretim yöntemi: dayanıklı ve maliyet etkin üretim için SLM (Seçici Lazer Ergitme) metal 3B baskı</li>
+              <li>Simülasyonla doğrulanan işlevler: her yöne hareket, 360° manevra kabiliyeti, ekipman kullanımı, GPS takibi ve kameraların kullanılamadığı durumlarda pusula rehberliğinde "kör seyrüsefer"</li>
+            </ul>
+
+            <h2>Testler ve Bulgular</h2>
+            <p>Ekip, hareket menzili, yön bulma ve işlev güvenilirliği gibi bir dizi operasyonel soru tanımladı ve bunları özel olarak inşa edilen bir simülasyon platformundaki deneylerle yanıtladı. Testler robotun her yöne hareketini, ekipman entegrasyonunu, FPS kamera davranışını, GPS konumlandırmasını ve pusula işlevlerini doğruladı; her işlev simülasyonda gözlem yoluyla tek tek doğrulandı. Rapor, simülasyon sonuçlarının gerçek dünyadaki saha performansını garanti edemeyeceğini açıkça belirtiyor ve siber güvenlik güçlendirmesi ile yapay zekâ destekli algılamayı gelecekteki gelişim için öncelikli yönler olarak tanımlıyor.</p>
+
+            <h2>Savunmanın Ötesi: Afet Müdahalesi</h2>
+            <p>Projenin önemli bir bölümü, AIR'ın sivil afet yönetimine — özellikle depremlere — uyarlanmasını araştırıyor. Değiştirilmiş sensörlerle robot, enkaz altında mahsur kalan hayatta kalanları tespit etmeye, yapısal hasarı değerlendirmeye, ilaç ve tıbbi malzeme ulaştırmaya ve koordineli arama kurtarma operasyonlarında insansız hava araçlarıyla birlikte çalışmaya yardımcı olabilir — hem afetzedeleri hem de kurtarma görevlilerini koruyarak.</p>
+
+            <h2>Program Bağlamı</h2>
+            <p>TÜBİTAK 2204-A Lise Öğrencileri Araştırma Projeleri Yarışması için Teknolojik Tasarım ana alanında, Millî Teknoloji Hamlesi tematik alanı kapsamında geliştirilmiştir. Tam proje raporu, otonom robotik pazar analizini, bileşen özelliklerini ve uzaktan kumandalı sistemlerin kullanımına dair bir etik tartışmasını içermektedir.</p>
+          </article>
+
+          <aside class="proj-aside">
+            <div class="proj-poster">
+              <img src="../../assets/poster-air.jpg" alt="AIR — Otonom Piyade Robotu konsept görselleştirmesi" loading="lazy" />
+            </div>
+            <p class="proj-poster-cap">Konsept görselleştirmesi</p>
+            <div class="detail-card">
+              <h3>Program</h3>
+              <p>TÜBİTAK 2204-A &mdash; Lise Öğrencileri Araştırma Projeleri Yarışması</p>
+            </div>
+            <div class="detail-card">
+              <h3>Kategori</h3>
+              <p>Robotik &middot; Otonom Sistemler &middot; Acil Müdahale</p>
+            </div>
+            <div class="detail-card">
+              <h3>Durum</h3>
+              <p>Sanal prototip — simülasyonda tasarlandı ve işlev testlerinden geçirildi</p>
+            </div>
+            <div class="detail-card">
+              <h3>Teknoloji</h3>
+              <p>Roblox simülasyonu &middot; Lua &middot; FPS kamera arayüzü &middot; GPS ve pusula navigasyonu</p>
+            </div>
+            <div class="detail-card">
+              <h3>İletişim</h3>
+              <a href="mailto:info@terra-reform.org">info@terra-reform.org</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="../../assets/terra-reform-logo.jpg" alt="Terra Reform" />
+          <span>Terra Reform</span>
+        </div>
+        <nav class="footer-nav">
+          <a href="/tr/about.html">Hakkımızda</a>
+          <a href="/tr/#projects">Projeler</a>
+          <a href="/tr/programs.html">Programlar</a>
+        <a href="/tr/news.html">Haberler</a>
+          <a href="/tr/join.html">Katıl</a>
+          <a href="/tr/contact.html">İletişim</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Terra Reform. Gerçek dünya sorunlarına öğrenci öncülüğünde inovasyon. &middot; <a href="/tr/privacy.html">Gizlilik</a></p>
+        <a href="mailto:info@terra-reform.org">info@terra-reform.org</a>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/terrareform/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/reform-terra/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../script.js"></script>
+  <script data-goatcounter="https://deniz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

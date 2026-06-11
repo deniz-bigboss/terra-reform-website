@@ -1,3 +1,19 @@
+// ── Browser-language redirect (EN <-> /tr/) ──
+(function () {
+  try {
+    const path = window.location.pathname;
+    const isTR = path === "/tr" || path.startsWith("/tr/");
+    if (localStorage.getItem("lang-pref")) return;
+    const browserTR = (navigator.language || "").toLowerCase().startsWith("tr");
+    if (browserTR && !isTR) {
+      window.location.replace(path === "/" ? "/tr/" : "/tr" + path);
+    } else if (!browserTR && isTR) {
+      const target = path.startsWith("/tr/") ? path.slice(3) : "/";
+      window.location.replace(target || "/");
+    }
+  } catch (e) {}
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
   const nav     = document.getElementById("mainNav");
   const burger  = document.getElementById("navBurger");
@@ -26,6 +42,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   applyTheme(localStorage.getItem("tr-theme") || "dark");
+
+  // ── Language toggle (EN <-> TR) ──
+  if (navInner) {
+    const path = window.location.pathname;
+    const isTR = path === "/tr" || path.startsWith("/tr/");
+    const altPath = isTR
+      ? (path.startsWith("/tr/") ? (path.slice(3) || "/") : "/")
+      : (path === "/" ? "/tr/" : "/tr" + path);
+    const langBtn = document.createElement("a");
+    langBtn.className = "lang-toggle";
+    langBtn.href = altPath;
+    langBtn.textContent = isTR ? "EN" : "TR";
+    langBtn.setAttribute("aria-label", isTR ? "Switch to English" : "Türkçeye geç");
+    langBtn.addEventListener("click", () => {
+      localStorage.setItem("lang-pref", isTR ? "en" : "tr");
+    });
+    navInner.appendChild(langBtn);
+  }
 
   // Navbar scroll shadow
   window.addEventListener("scroll", () => {
