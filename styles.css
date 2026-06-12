@@ -422,12 +422,12 @@ a { color: inherit; text-decoration: none; }
   display: inline-flex; align-items: center; gap: 6px;
   font-weight: 600; color: var(--text);
 }
-.studio-badge img { width: 18px; height: 18px; border-radius: 4px; }
+.studio-badge img { width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; }
 a.studio-badge:hover { color: var(--green); }
-.studio-links { display: inline-flex; align-items: center; gap: 6px; margin-left: 4px; }
+.studio-links { display: inline-flex; align-items: center; gap: 5px; margin-left: 4px; }
 .studio-links a { display: inline-flex; color: var(--text-2); transition: color 0.2s var(--ease); }
 .studio-links a:hover { color: var(--green); }
-.studio-links svg { width: 14px; height: 14px; }
+.studio-links svg { width: 12px; height: 12px; flex-shrink: 0; }
 
 /* ─────────────────────────────────────────
    Programs
