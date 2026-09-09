@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
           err.className = "form-error";
           form.appendChild(err);
         }
-        err.textContent = "Something went wrong — please try again, or email us at dnz121208@gmail.com.";
+        err.textContent = "Something went wrong — please try again, or email us at mrdenizyilmaz0@gmail.com.";
       }
     });
   });
