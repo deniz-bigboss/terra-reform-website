@@ -90,7 +90,7 @@ It updates `news.html`, `tr/news.html`, and `feed.xml` together.
 Deployment is automatic: merging to `main` publishes the site.
 
 Further conventions — page metadata requirements, the image pipeline, SEO invariants —
-are documented in [`CLAUDE.md`](CLAUDE.md).
+are documented in [`AGENTS.md`](AGENTS.md).
 
 ## Contact
 
