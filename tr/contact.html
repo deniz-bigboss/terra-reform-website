@@ -26,9 +26,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../styles.css?v=20261106-approved" />
 </head>
 <body>
+<a class="skip-link" href="#main-content">İçeriğe atla</a>
 
   <header class="nav" id="mainNav">
     <div class="nav-inner">
@@ -36,7 +37,7 @@
         <img src="../assets/terra-reform-logo.jpg" alt="Terra Reform" />
         <span>Terra Reform</span>
       </a>
-      <nav class="nav-links" id="navLinks">
+      <nav class="nav-links" id="navLinks" aria-label="Ana menü">
         <a href="/tr/about.html">Hakkımızda</a>
         <a href="/tr/#projects">Projeler</a>
         <a href="/tr/programs.html">Programlar</a>
@@ -50,12 +51,41 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="page-hero">
       <div class="container">
         <p class="label">Bize Ulaşın</p>
         <h1>İletişim</h1>
         <p>Bir sorunuz, bir fikriniz mi var, yoksa iş birliği mi yapmak istiyorsunuz? Sizden haber almaktan mutluluk duyarız.</p>
+      </div>
+    </section>
+
+
+    <section class="site-section section" id="collaborate">
+      <div class="container">
+        <p class="label">Sana uygun başlangıç</p>
+        <h2 class="s-head">Birlikte çalışmanın bir yolunu bulalım</h2>
+        <p class="s-sub">Öğrenci, mentor veya eğitimci olarak ne yapmak istediğini seç; mesajına doğru yerden başlayalım.</p>
+        <div class="site-grid"><article class="site-card">
+          <p class="site-kicker">ÖĞRENCİLER</p>
+          <h3>Bir projeye katkı ver</h3>
+          <p>Araştırma, yazılım veya tasarımla ilgileniyorsan katılım sayfasındaki örnekleri incele. Kendi proje fikrini de paylaşabilirsin.</p>
+          <a class="site-link" href="/tr/join.html#contribute">Katkı yollarını incele &rarr;</a>
+          <div class="site-actions"><button type="button" class="btn btn-ghost" data-fill-message="Öğrenci olarak Terra Reform hakkında sormak istediğim: " data-fill-subject="Öğrenci katılımı">Bir soru sor &rarr;</button></div>
+        </article><article class="site-card">
+          <p class="site-kicker">MENTORLAR · ARAŞTIRMACILAR</p>
+          <h3>Uzmanlığını paylaş</h3>
+          <p>Araştırma yöntemi, simülasyon veya prototip tasarımı konusunda geri bildirim sunmak istersen uzmanlık alanını ve ilgilendiğin projeyi belirt.</p>
+          <a class="site-link" href="/tr/projects/cern-bl4s.html">Araştırma önerisine göz at &rarr;</a>
+          <div class="site-actions"><button type="button" class="btn btn-ghost" data-fill-message="Uzmanlık alanım: &#10;Geri bildirim sunmak istediğim proje veya konu: &#10;Önerdiğim katkı: " data-fill-subject="Mentorluk ve teknik geri bildirim">Mentorluk önerisi yaz &rarr;</button></div>
+        </article><article class="site-card">
+          <p class="site-kicker">ÖĞRETMENLER · OKULLAR</p>
+          <h3>Eğitim için bir fikir öner</h3>
+          <p>Sanal Fizik Laboratuvarı’nı inceleyip ders kullanımı, içerik değerlendirmesi veya olası bir iş birliği hakkında ekibe yazabilirsin.</p>
+          <a class="site-link" href="/tr/projects/virtual-physics-lab.html">Laboratuvar projesini incele &rarr;</a>
+          <div class="site-actions"><button type="button" class="btn btn-ghost" data-fill-message="Okulum / kurumum: &#10;İlgilendiğim proje: &#10;Eğitimde kullanım veya iş birliği fikrim: " data-fill-subject="Okul ve eğitim iş birliği">İş birliği önerisi yaz &rarr;</button></div>
+        </article></div>
+        <p class="site-note">Nasıl katkı vermek veya birlikte çalışmak istediğini anlat. Birlikte yararlı bir ilk adım belirleyebiliriz.</p>
       </div>
     </section>
 
@@ -98,8 +128,8 @@
       <div class="container">
         <p class="label reveal">Bize Yazın</p>
         <h2 class="s-head reveal">Mesaj Gönderin</h2>
-        <p class="s-sub reveal">Sorular, iş birliği önerileri, basın, sponsorluk — aklınıza ne gelirse. Mesajınız doğrudan gelen kutumuza düşer.</p>
-        <form class="form-card reveal" action="https://formspree.io/f/xqevdddp" method="POST">
+        <p class="s-sub reveal">Sorunu, geliştirme fikrini veya iş birliği önerini paylaş. Mesajın Terra Reform ekibine ulaşır; genellikle 2–3 gün içinde yanıt veririz.</p>
+        <form id="contact-form" class="form-card reveal" action="https://formspree.io/f/xqevdddp" method="POST">
           <div class="form-row">
             <div class="form-field">
               <label for="ct-name">Ad Soyad</label>
@@ -119,7 +149,7 @@
             <textarea id="ct-message" name="message" required></textarea>
           </div>
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-          <button type="submit" class="btn btn-green">Gönder</button>
+          <button type="submit" class="btn btn-green">Mesajı gönder</button>
           <p class="form-note">Genellikle 2&ndash;3 gün içinde yanıt veriyoruz.</p>
         </form>
       </div>
@@ -168,7 +198,7 @@
     </div>
   </footer>
 
-  <script src="../script.js"></script>
-  <script data-goatcounter="https://deniz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script src="../script.js?v=20261106-approved"></script>
+<script data-goatcounter="https://deniz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

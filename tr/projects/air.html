@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="../../styles.css?v=20261106-approved" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -45,6 +45,7 @@
   </script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">İçeriğe atla</a>
 
   <header class="nav" id="mainNav">
     <div class="nav-inner">
@@ -52,7 +53,7 @@
         <img src="../../assets/terra-reform-logo.jpg" alt="Terra Reform" />
         <span>Terra Reform</span>
       </a>
-      <nav class="nav-links" id="navLinks">
+      <nav class="nav-links" id="navLinks" aria-label="Ana menü">
         <a href="/tr/about.html">Hakkımızda</a>
         <a href="/tr/#projects">Projeler</a>
         <a href="/tr/programs.html">Programlar</a>
@@ -66,7 +67,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="proj-hero" style="--c: #06b6d4;">
       <svg class="proj-hero-art" viewBox="0 0 360 360" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
         <!-- head -->
@@ -118,6 +119,25 @@
         <p class="proj-sub">Tehlikeli durumlarda görev alması için tasarlanmış, sanal ortamda tasarlanan, simüle edilen ve işlev testlerinden geçirilen uzaktan kumandalı bir insansı robot konsepti — deprem arama kurtarma ve afet yönetimi alanlarına yönelik genişletme önerileriyle birlikte.</p>
         <div class="proj-status">
           <span>&#9679;</span>&nbsp; Simüle Edilmiş Sanal Prototip &middot; TÜBİTAK 2204-A
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section project-summary">
+      <div class="container">
+        <div class="site-card">
+          <p class="site-kicker">Çıktı ve erişim</p>
+          <h2>Proje bir bakışta</h2>
+          <dl class="site-facts">
+            <div><dt>Durum</dt><dd>Simüle Edilmiş Sanal Prototip · TÜBİTAK 2204-A</dd></div>
+            <div><dt>Ortaya çıkan çıktı</dt><dd>Sanal ortamda tasarlanmış, simüle edilmiş ve işlevleri test edilmiş sanal prototip.</dd></div>
+          </dl>
+          <div class="project-availability">
+            <dl class="availability-facts"><div><dt>Proje dönemi</dt><dd>İlk proje dönemi tamamlandı</dd></div><div><dt>Katılım</dt><dd>Geliştirme fikirlerine açık</dd></div></dl>
+            <p class="site-note">İlk çalışma dönemi, yukarıda belirtilen proje aşamasında tamamlandı. Mevcut çalışmayı geliştiren, genişleten veya ondan yola çıkan yeni fikirleri birlikte değerlendirmeye açığız; kapsamı ve sonraki adımı ekiple konuşarak belirleyebiliriz.</p>
+            <a href="/tr/contact.html?project=air#contact-form" class="site-link">Bir geliştirme öner →</a>
+          </div>
+          <div class="site-actions"><a href="../../assets/poster-air.jpg" class="btn btn-ghost" target="_blank" rel="noopener">Posteri İncele ↗</a><a href="/tr/contact.html?project=air#contact-form" class="site-link">Proje hakkında sor →</a></div>
         </div>
       </div>
     </section>
@@ -213,7 +233,7 @@
     </div>
   </footer>
 
-  <script src="../../script.js"></script>
-  <script data-goatcounter="https://deniz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script src="../../script.js?v=20261106-approved"></script>
+<script data-goatcounter="https://deniz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

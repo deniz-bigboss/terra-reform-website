@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
   <header class="nav" id="mainNav">
     <div class="nav-inner">
@@ -22,7 +23,7 @@
         <img src="/assets/terra-reform-logo.jpg" alt="Terra Reform" />
         <span>Terra Reform</span>
       </a>
-      <nav class="nav-links" id="navLinks">
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
         <a href="/about.html">About</a>
         <a href="/#projects">Projects</a>
         <a href="/programs.html">Programs</a>
@@ -36,7 +37,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="proj-hero" style="--c: #00df6b; text-align: center;">
       <div class="container">
         <h1 style="font-size: clamp(4rem, 12vw, 7rem); margin-bottom: 8px;">404</h1>
@@ -78,6 +79,6 @@
   </footer>
 
   <script src="/script.js"></script>
-  <script data-goatcounter="https://deniz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://deniz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

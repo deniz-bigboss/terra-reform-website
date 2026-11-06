@@ -1,23 +1,29 @@
-// ── Browser-language redirect (EN <-> /tr/) ──
+// Follow the browser language on a first visit, retaining deep links.
 (function () {
   try {
     const path = window.location.pathname;
-    const isTR = path === "/tr" || path.startsWith("/tr/");
-    if (localStorage.getItem("lang-pref")) return;
-    const browserTR = (navigator.language || "").toLowerCase().startsWith("tr");
-    if (browserTR && !isTR) {
-      window.location.replace(path === "/" ? "/tr/" : "/tr" + path);
-    } else if (!browserTR && isTR) {
-      const target = path.startsWith("/tr/") ? path.slice(3) : "/";
-      window.location.replace(target || "/");
+    const suffix = window.location.search + window.location.hash;
+    const isTurkish = path === '/tr' || path.startsWith('/tr/');
+    if (localStorage.getItem('lang-pref')) return;
+    const browserTurkish = (navigator.language || '').toLowerCase().startsWith('tr');
+    if (browserTurkish && !isTurkish) {
+      window.location.replace((path === '/' ? '/tr/' : '/tr' + path) + suffix);
+    } else if (!browserTurkish && isTurkish) {
+      const target = path.startsWith('/tr/') ? path.slice(3) : '/';
+      window.location.replace((target || '/') + suffix);
     }
-  } catch (e) {}
+  } catch (error) {
+    // Storage restrictions should not prevent the page from loading.
+  }
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
   const nav     = document.getElementById("mainNav");
   const burger  = document.getElementById("navBurger");
   const links   = document.getElementById("navLinks");
+  const isTurkish = document.documentElement.lang === 'tr';
+  const readPreference = key => { try { return localStorage.getItem(key); } catch (error) { return null; } };
+  const writePreference = (key, value) => { try { localStorage.setItem(key, value); } catch (error) {} };
 
   // ── Theme toggle (dark default, light optional) ──
   const SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
@@ -26,7 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const applyTheme = (t) => {
     if (t === "light") root.setAttribute("data-theme", "light");
     else root.removeAttribute("data-theme");
-    if (themeBtn) themeBtn.innerHTML = t === "light" ? MOON : SUN;
+    if (themeBtn) {
+      themeBtn.innerHTML = t === "light" ? MOON : SUN;
+      themeBtn.setAttribute('aria-label', t === 'light'
+        ? (isTurkish ? 'Koyu temaya geç' : 'Switch to dark theme')
+        : (isTurkish ? 'Açık temaya geç' : 'Switch to light theme'));
+    }
   };
   const navInner = document.querySelector(".nav-inner");
   let themeBtn = null;
@@ -37,11 +48,11 @@ document.addEventListener("DOMContentLoaded", () => {
     navInner.appendChild(themeBtn);
     themeBtn.addEventListener("click", () => {
       const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
-      localStorage.setItem("tr-theme", next);
+      writePreference("tr-theme", next);
       applyTheme(next);
     });
   }
-  applyTheme(localStorage.getItem("tr-theme") || "dark");
+  applyTheme(readPreference("tr-theme") || "dark");
 
   // ── Language toggle (EN <-> TR) ──
   if (navInner) {
@@ -52,11 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
       : (path === "/" ? "/tr/" : "/tr" + path);
     const langBtn = document.createElement("a");
     langBtn.className = "lang-toggle";
-    langBtn.href = altPath;
+    langBtn.href = altPath + window.location.search + window.location.hash;
     langBtn.textContent = isTR ? "EN" : "TR";
     langBtn.setAttribute("aria-label", isTR ? "Switch to English" : "Türkçeye geç");
     langBtn.addEventListener("click", () => {
-      localStorage.setItem("lang-pref", isTR ? "en" : "tr");
+      writePreference("lang-pref", isTR ? "en" : "tr");
     });
     navInner.appendChild(langBtn);
   }
@@ -68,20 +79,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Mobile menu
   if (burger && links) {
+    burger.setAttribute('aria-controls', 'navLinks');
+    const closeMenu = (returnFocus = false) => {
+      links.classList.remove('open');burger.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      burger.setAttribute('aria-label',isTurkish ? 'Menüyü aç' : 'Open menu');
+      if(returnFocus)burger.focus();
+    };
+    closeMenu();
     burger.addEventListener("click", () => {
       const open = links.classList.toggle("open");
       burger.classList.toggle("open", open);
       burger.setAttribute("aria-expanded", open);
-      burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      burger.setAttribute("aria-label", open ? (isTurkish ? 'Menüyü kapat' : 'Close menu') : (isTurkish ? 'Menüyü aç' : 'Open menu'));
+      if(open)links.querySelector('a')?.focus();
     });
     links.querySelectorAll("a").forEach(a => {
       a.addEventListener("click", () => {
-        links.classList.remove("open");
-        burger.classList.remove("open");
-        burger.setAttribute("aria-expanded", "false");
-        burger.setAttribute("aria-label", "Open menu");
+        closeMenu();
       });
     });
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&links.classList.contains('open')){e.preventDefault();closeMenu(true)}});
+    document.addEventListener('click',e=>{if(links.classList.contains('open')&&!nav?.contains(e.target))closeMenu()});
+    document.addEventListener('focusin',e=>{if(links.classList.contains('open')&&!nav?.contains(e.target))closeMenu()});
   }
 
   // Scroll reveal
@@ -98,34 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
   els.forEach((el, i) => {
     el.style.transitionDelay = `${(i % 6) * 55}ms`;
     io.observe(el);
-  });
-
-  // ── Formspree forms: AJAX submit with inline success message ──
-  document.querySelectorAll('form[action*="formspree.io"]').forEach(form => {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      const original = btn ? btn.textContent : "";
-      if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
-      try {
-        const res = await fetch(form.action, {
-          method: "POST",
-          body: new FormData(form),
-          headers: { Accept: "application/json" },
-        });
-        if (!res.ok) throw new Error("send failed");
-        form.innerHTML = '<p class="form-success">&#10003;&nbsp; Thank you! Your message is on its way — we\'ll be in touch soon.</p>';
-      } catch {
-        if (btn) { btn.disabled = false; btn.textContent = original; }
-        let err = form.querySelector(".form-error");
-        if (!err) {
-          err = document.createElement("p");
-          err.className = "form-error";
-          form.appendChild(err);
-        }
-        err.textContent = "Something went wrong — please try again, or email us at mrdenizyilmaz0@gmail.com.";
-      }
-    });
   });
 
   // ── Timeline: scroll-driven line fill + item lighting ──
@@ -291,26 +283,287 @@ document.addEventListener('DOMContentLoaded', () => {
   const posters = document.querySelectorAll('.proj-poster img');
   if (!posters.length) return;
 
-  const overlay = document.createElement('div');
+  const isTurkish = document.documentElement.lang === 'tr';
+  const overlay = document.createElement('dialog');
   overlay.className = 'lightbox';
-  overlay.innerHTML = '<img alt="" /><button class="lightbox-close" aria-label="Close">&times;</button>';
+  overlay.setAttribute('aria-label',isTurkish ? 'Büyütülmüş proje görseli' : 'Enlarged project image');
+  overlay.innerHTML = '<img alt="" /><button type="button" class="lightbox-close" aria-label="'+(isTurkish?'Görseli kapat':'Close image')+'">&times;</button>';
   document.body.appendChild(overlay);
   const overlayImg = overlay.querySelector('img');
+  let activeTrigger = null;
+  overlay.addEventListener('close', () => activeTrigger?.focus());
 
   const close = () => {
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
+    overlay.close();
   };
 
   posters.forEach(img => {
-    img.closest('.proj-poster').addEventListener('click', () => {
+    const trigger=img.closest('.proj-poster');
+    trigger.tabIndex=0;trigger.setAttribute('role','button');trigger.setAttribute('aria-haspopup','dialog');
+    trigger.setAttribute('aria-label',(isTurkish?'Görseli büyüt: ':'Enlarge image: ')+img.alt);
+    const open = () => {
+      activeTrigger = trigger;
       overlayImg.src = img.src;
       overlayImg.alt = img.alt;
-      overlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
+      overlay.showModal();
+    };
+    trigger.addEventListener('click',open);
+    trigger.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
+  });
+
+  overlay.querySelector('button').addEventListener('click',close);
+  overlay.addEventListener('click',e=>{if(e.target===overlay)close()});
+});
+
+// Contribution starting points and reviewed form submission.
+document.addEventListener('DOMContentLoaded', () => {
+  const isTurkish = document.documentElement.lang === 'tr';
+  const t = (turkish, english) => isTurkish ? turkish : english;
+  const escapeHtml = value => String(value).replace(/[&<>"']/g, character => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[character]));
+  const joinForm = document.querySelector('#join-form');
+  const joinPath = joinForm?.querySelector('#join-path');
+  const ideaTemplate = t(
+    'Çözmek istediğim sorun:\n\nKimler faydalanabilir:\n\nİlk yaklaşımım veya araştırma sorum:\n\nİhtiyaç duyduğum destek:\n',
+    'Problem I want to solve:\n\nWho could benefit:\n\nMy initial approach or research question:\n\nSupport I would find useful:\n'
+  );
+
+  function toast(message) {
+    document.querySelector('.site-toast')?.remove();
+    const element = document.createElement('div');
+    element.className = 'site-toast';
+    element.setAttribute('role', 'status');
+    element.textContent = message;
+    document.body.append(element);
+    setTimeout(() => element.remove(), 5000);
+  }
+
+  function fillMessage(message, value) {
+    if (!message) return;
+    // Retain a student's writing when another starting point is selected.
+    if (message.value.trim() && message.value !== message.dataset.messagePrefill) {
+      if (!message.value.includes(value)) message.value += '\n\n' + value;
+      delete message.dataset.messagePrefill;
+    } else {
+      message.value = value;
+      message.dataset.messagePrefill = value;
+    }
+    message.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+
+  function updateJoinPath() {
+    if (!joinPath) return;
+    const idea = joinPath.value === 'idea';
+    const guidance = joinForm.querySelector('#idea-form-guidance');
+    const message = joinForm.querySelector('#join-message');
+    const label = joinForm.querySelector('label[for="join-message"]');
+    if (guidance) guidance.hidden = !idea;
+    if (label) label.textContent = idea ? t('Proje fikrin', 'Your project idea') : t('Kendinden bahset', 'About you');
+    if (message) {
+      message.placeholder = idea
+        ? t('Sorun, kimlerin faydalanacağı, ilk yaklaşımın ve ihtiyaç duyduğun destek.', 'The problem, who could benefit, your initial approach, and the help you need.')
+        : t('Kendin, ilgi alanların ve üzerinde çalışmak istediklerin hakkında birkaç satır.', 'A few lines about yourself, your interests, and what you would like to work on.');
+      if (idea) message.setAttribute('aria-describedby', 'idea-form-guidance');
+      else message.removeAttribute('aria-describedby');
+    }
+    const submit = joinForm.querySelector('button[type="submit"]');
+    if (submit) submit.textContent = idea ? t('Öneriyi gözden geçir', 'Review proposal') : t('Başvuruyu gözden geçir', 'Review application');
+  }
+
+  joinPath?.addEventListener('change', () => {
+    updateJoinPath();
+    if (joinPath.value === 'idea') fillMessage(joinForm.querySelector('#join-message'), ideaTemplate);
+  });
+  updateJoinPath();
+
+  document.querySelectorAll('[data-propose-project]').forEach(button => button.addEventListener('click', () => {
+    if (!joinForm || !joinPath || joinForm.getAttribute('aria-busy') === 'true') return;
+    joinPath.value = 'idea';
+    updateJoinPath();
+    const message = joinForm.querySelector('#join-message');
+    fillMessage(message, ideaTemplate);
+    joinForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    message?.focus({ preventScroll: true });
+    toast(t('Proje önerisi seçildi. Erken bir fikirle başlayabilirsin; mevcut yazın korundu.', 'Project proposal selected. An early idea is welcome; any text you wrote has been kept.'));
+  }));
+
+  document.querySelectorAll('[data-fill-message]').forEach(button => button.addEventListener('click', () => {
+    const form = document.querySelector('#join-form, #contact-form');
+    if (!form || form.getAttribute('aria-busy') === 'true') return;
+    if (joinPath && form === joinForm) {
+      joinPath.value = 'contribute';
+      updateJoinPath();
+    }
+    const interest = form.querySelector('#join-interest');
+    if (interest && button.dataset.fillInterest) interest.value = button.dataset.fillInterest;
+    const subject = form.querySelector('#ct-subject');
+    if (subject && button.dataset.fillSubject) subject.value = button.dataset.fillSubject;
+    const message = form.querySelector('textarea');
+    fillMessage(message, button.dataset.fillMessage);
+    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    message?.focus({ preventScroll: true });
+    toast(t('Seçimin forma eklendi. İstersen metni değiştirebilirsin.', 'Your selection is in the form. You can edit the message.'));
+  }));
+
+  const contact = document.querySelector('#contact-form');
+  const projectNames = {
+    'air': 'AIR',
+    'battle-of-verdun': 'Battle of Verdun',
+    'braille-circuits': 'Braille Circuits',
+    'cern-bl4s': t('CERN BL4S projesi', 'CERN BL4S project'),
+    'safe-explorer': 'Safe Explorer',
+    'solar-microgrid': t('Güneş Mikro Şebekesi', 'Solar-Powered School Microgrid'),
+    'virtual-physics-lab': t('Sanal Fizik Laboratuvarı', 'Virtual Physics Laboratory')
+  };
+  const projectKey = new URLSearchParams(window.location.search).get('project');
+  const project = Object.prototype.hasOwnProperty.call(projectNames, projectKey) ? projectNames[projectKey] : null;
+  if (contact && project) {
+    const subject = contact.querySelector('#ct-subject');
+    if (subject) subject.value = t('Geliştirme fikri: ', 'Improvement idea: ') + project;
+    fillMessage(contact.querySelector('textarea'),
+      t('Bu çalışmayı geliştirmek veya genişletmek istiyorum: ', 'I would like to improve or extend: ') + project +
+      t('\n\nFikrim:\n\nNasıl katkı verebilirim:\n\nİhtiyaç duyduğum destek:\n', '\n\nMy idea:\n\nHow I could contribute:\n\nSupport I would find useful:\n'));
+  }
+
+  document.querySelectorAll('#join-form, #contact-form, .newsletter-form').forEach((form, index) => {
+    const primary = form.querySelector('button[type="submit"]');
+    const newsletter = form.classList.contains('newsletter-form');
+    if (primary && form !== joinForm) primary.textContent = newsletter
+      ? t('Aboneliği gözden geçir', 'Review signup')
+      : t('Mesajı gözden geçir', 'Review message');
+
+    const feedback = document.createElement('p');
+    feedback.className = 'form-feedback';
+    feedback.setAttribute('role', 'status');
+    feedback.setAttribute('aria-live', 'polite');
+    feedback.tabIndex = -1;
+    feedback.hidden = true;
+    form.append(feedback);
+    let summary = null;
+    let reviewedData = null;
+    let reviewedSignature = '';
+    let sending = false;
+
+    const signature = data => JSON.stringify([...data.entries()].map(([name, value]) => [name, String(value)]));
+    const showFeedback = (message, state = '') => {
+      feedback.textContent = message;
+      feedback.className = 'form-feedback' + (state ? ' is-' + state : '');
+      feedback.hidden = !message;
+    };
+    const dismissReview = () => {
+      if (sending) return;
+      summary?.remove();
+      summary = null;
+      reviewedData = null;
+      reviewedSignature = '';
+      showFeedback('');
+    };
+    form.addEventListener('input', dismissReview);
+    form.addEventListener('change', dismissReview);
+    form.addEventListener('reset', () => {
+      dismissReview();
+      form.querySelectorAll('textarea').forEach(message => delete message.dataset.messagePrefill);
+    });
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      if (sending || !form.reportValidity()) return;
+      dismissReview();
+      reviewedData = new FormData(form);
+      reviewedSignature = signature(reviewedData);
+      const idea = form === joinForm && joinPath?.value === 'idea';
+      const labels = {
+        name: t('Ad', 'Name'), email: t('E-posta', 'Email'), school: t('Okul', 'School'),
+        interest: t('İlgi alanı', 'Interest'), participation_path: t('Katılım yolu', 'Participation path'),
+        subject: t('Konu', 'Subject'), message: t('Mesaj', 'Message')
+      };
+      const items = [...reviewedData.entries()].filter(([name, value]) => labels[name] && String(value).trim());
+      const title = newsletter ? t('Aboneliğini gözden geçir', 'Review your signup')
+        : idea ? t('Proje önerini gözden geçir', 'Review your project proposal')
+        : form === joinForm ? t('Başvurunu gözden geçir', 'Review your application')
+        : t('Mesajını gözden geçir', 'Review your message');
+      summary = document.createElement('section');
+      summary.className = 'submission-review';
+      summary.tabIndex = -1;
+      const titleId = 'submission-review-title-' + index;
+      summary.setAttribute('aria-labelledby', titleId);
+      summary.innerHTML = `<h3 id="${titleId}">${title}</h3><p>${t('Henüz gönderilmedi. Bilgilerini kontrol et, ardından göndermeyi seç.', 'Nothing has been sent yet. Check your details, then choose Send.')}</p><dl class="submission-summary">${items.map(([name, value]) => {
+        const display = name === 'participation_path'
+          ? (value === 'idea' ? t('Yeni proje önerisi', 'New project idea') : t('Mevcut çalışmaya katkı', 'Contribute to existing work'))
+          : String(value);
+        return `<div><dt>${escapeHtml(labels[name])}</dt><dd>${escapeHtml(display)}</dd></div>`;
+      }).join('')}</dl>`;
+      const actions = document.createElement('div');
+      actions.className = 'submission-actions';
+      const edit = document.createElement('button');
+      edit.type = 'button';
+      edit.className = 'btn btn-ghost';
+      edit.textContent = t('Düzenle', 'Edit');
+      edit.addEventListener('click', () => {
+        dismissReview();
+        form.querySelector('input:not([type="hidden"]):not([name="_gotcha"]), select, textarea')?.focus();
+      });
+      const send = document.createElement('button');
+      send.type = 'button';
+      send.className = 'btn btn-green';
+      const sendLabel = newsletter ? t('Abone ol', 'Send signup')
+        : idea ? t('Öneriyi gönder', 'Send proposal')
+        : form === joinForm ? t('Başvuruyu gönder', 'Send application')
+        : t('Mesajı gönder', 'Send message');
+      send.textContent = sendLabel;
+      send.addEventListener('click', async () => {
+        if (sending || !reviewedData) return;
+        // Recheck the current values in case another script changed a field.
+        if (signature(new FormData(form)) !== reviewedSignature || !form.reportValidity()) {
+          dismissReview();
+          showFeedback(t('Bilgilerin değişti. Göndermeden önce tekrar gözden geçir.', 'Your details have changed. Please review them again before sending.'));
+          primary?.focus();
+          return;
+        }
+        const payload = reviewedData;
+        sending = true;
+        form.setAttribute('aria-busy', 'true');
+        const controls = [...form.querySelectorAll('input, select, textarea, button')].map(control => [control, control.disabled]);
+        controls.forEach(([control]) => { control.disabled = true; });
+        send.textContent = t('Gönderiliyor…', 'Sending…');
+        showFeedback(t('Gönderiliyor…', 'Sending…'));
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST', body: payload, headers: { Accept: 'application/json' }
+          });
+          if (!response.ok) throw new Error('Submission was not accepted');
+          sending = false;
+          form.reset();
+          if (form === joinForm) updateJoinPath();
+          showFeedback(newsletter
+            ? t('Abonelik talebin gönderildi. Teşekkürler!', 'Your signup request was sent. Thank you!')
+            : t('Mesajın gönderildi. En kısa sürede sana geri döneceğiz.', 'Your message was sent. We will get back to you soon.'), 'success');
+          feedback.focus({ preventScroll: true });
+        } catch (error) {
+          showFeedback(t(
+            'Gönderilemedi. Bilgilerin korundu; tekrar deneyebilir veya mrdenizyilmaz0@gmail.com adresine e-posta gönderebilirsin.',
+            'Your submission could not be sent. Your details are preserved; try again or email mrdenizyilmaz0@gmail.com.'
+          ), 'error');
+          feedback.focus({ preventScroll: true });
+        } finally {
+          sending = false;
+          form.removeAttribute('aria-busy');
+          controls.forEach(([control, wasDisabled]) => { control.disabled = wasDisabled; });
+          send.textContent = sendLabel;
+        }
+      });
+      actions.append(edit, send);
+      summary.append(actions);
+      form.append(summary);
+      summary.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      summary.focus({ preventScroll: true });
     });
   });
 
-  overlay.addEventListener('click', close);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  const current = window.location.pathname;
+  document.querySelectorAll('#navLinks a').forEach(anchor => {
+    const target = new URL(anchor.href, window.location.origin);
+    if (target.pathname === current && !target.hash) anchor.setAttribute('aria-current', 'page');
+  });
 });
