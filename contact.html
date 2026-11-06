@@ -26,9 +26,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20261106-approved" />
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
   <header class="nav" id="mainNav">
     <div class="nav-inner">
@@ -36,7 +37,7 @@
         <img src="assets/terra-reform-logo.jpg" alt="Terra Reform" />
         <span>Terra Reform</span>
       </a>
-      <nav class="nav-links" id="navLinks">
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
         <a href="/about.html">About</a>
         <a href="/#projects">Projects</a>
         <a href="/programs.html">Programs</a>
@@ -50,12 +51,41 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="page-hero">
       <div class="container">
         <p class="label">Reach Out</p>
         <h1>Contact</h1>
         <p>Have a question, an idea, or want to collaborate? We'd love to hear from you.</p>
+      </div>
+    </section>
+
+
+    <section class="site-section section" id="collaborate">
+      <div class="container">
+        <p class="label">Choose your starting point</p>
+        <h2 class="s-head">Find a way to work together</h2>
+        <p class="s-sub">Tell us whether you are a student, mentor, or educator so your message starts in the right place.</p>
+        <div class="site-grid"><article class="site-card">
+          <p class="site-kicker">STUDENTS</p>
+          <h3>Contribute to a project</h3>
+          <p>Interested in research, software, or design? Explore the examples on the join page, or share a project idea of your own.</p>
+          <a class="site-link" href="/join.html#contribute">Explore ways to contribute &rarr;</a>
+          <div class="site-actions"><button type="button" class="btn btn-ghost" data-fill-message="As a student, I would like to ask about: " data-fill-subject="Student participation">Ask a question &rarr;</button></div>
+        </article><article class="site-card">
+          <p class="site-kicker">MENTORS · RESEARCHERS</p>
+          <h3>Share your expertise</h3>
+          <p>If you would like to offer feedback on research methods, simulations, or prototype design, tell us your expertise and the project that interests you.</p>
+          <a class="site-link" href="/projects/cern-bl4s.html">Explore a research proposal &rarr;</a>
+          <div class="site-actions"><button type="button" class="btn btn-ghost" data-fill-message="My expertise: &#10;Project or topic I could review: &#10;My proposed contribution: " data-fill-subject="Mentoring and technical feedback">Suggest a mentoring contribution &rarr;</button></div>
+        </article><article class="site-card">
+          <p class="site-kicker">TEACHERS · SCHOOLS</p>
+          <h3>Suggest an education idea</h3>
+          <p>Explore the Virtual Physics Laboratory and contact the team about classroom use, content feedback, or a possible collaboration.</p>
+          <a class="site-link" href="/projects/virtual-physics-lab.html">Explore the laboratory project &rarr;</a>
+          <div class="site-actions"><button type="button" class="btn btn-ghost" data-fill-message="My school / organisation: &#10;Project of interest: &#10;Classroom use or collaboration idea: " data-fill-subject="School and education collaboration">Suggest a collaboration &rarr;</button></div>
+        </article></div>
+        <p class="site-note">Tell us how you would like to contribute or collaborate. We can discuss a useful next step together.</p>
       </div>
     </section>
 
@@ -98,8 +128,8 @@
       <div class="container">
         <p class="label reveal">Write to Us</p>
         <h2 class="s-head reveal">Send a Message</h2>
-        <p class="s-sub reveal">Questions, collaboration proposals, press, sponsorship — anything. It lands straight in our inbox.</p>
-        <form class="form-card reveal" action="https://formspree.io/f/xqevdddp" method="POST">
+        <p class="s-sub reveal">Share a question, improvement idea, or collaboration proposal. Your message goes to the Terra Reform team; we usually reply within 2–3 days.</p>
+        <form id="contact-form" class="form-card reveal" action="https://formspree.io/f/xqevdddp" method="POST">
           <div class="form-row">
             <div class="form-field">
               <label for="ct-name">Name</label>
@@ -119,7 +149,7 @@
             <textarea id="ct-message" name="message" required></textarea>
           </div>
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-          <button type="submit" class="btn btn-green">Send Message</button>
+          <button type="submit" class="btn btn-green">Send message</button>
           <p class="form-note">We typically reply within 2&ndash;3 days.</p>
         </form>
       </div>
@@ -168,7 +198,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
-  <script data-goatcounter="https://deniz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script src="script.js?v=20261106-approved"></script>
+<script data-goatcounter="https://deniz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../styles.css?v=20261106-approved" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -45,6 +45,7 @@
   </script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
   <header class="nav" id="mainNav">
     <div class="nav-inner">
@@ -52,7 +53,7 @@
         <img src="../assets/terra-reform-logo.jpg" alt="Terra Reform" />
         <span>Terra Reform</span>
       </a>
-      <nav class="nav-links" id="navLinks">
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
         <a href="/about.html">About</a>
         <a href="/#projects">Projects</a>
         <a href="/programs.html">Programs</a>
@@ -66,7 +67,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="proj-hero" style="--c: #f59e0b;">
       <svg class="proj-hero-art" viewBox="0 0 360 360" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
         <!-- atom -->
@@ -109,6 +110,25 @@
         <p class="proj-sub">A Roblox-based interactive virtual physics laboratory designed to make practical science education more accessible through interactive simulations covering multiple physics topics. Developed for TEKNOFEST and a Regional Finalist in the TÜBİTAK 2204-A High School Research Projects Competition.</p>
         <div class="proj-status">
           <span>&#9679;</span>&nbsp; Regional Finalist &middot; TÜBİTAK 2204-A
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section project-summary">
+      <div class="container">
+        <div class="site-card">
+          <p class="site-kicker">Output &amp; access</p>
+          <h2>Project at a glance</h2>
+          <dl class="site-facts">
+            <div><dt>Status</dt><dd>Regional Finalist · TÜBİTAK 2204-A</dd></div>
+            <div><dt>Project output</dt><dd>Six interactive physics laboratories on Roblox; TÜBİTAK 2204-A Regional Finalist.</dd></div>
+          </dl>
+          <div class="project-availability">
+            <dl class="availability-facts"><div><dt>Project lifecycle</dt><dd>Original project cycle complete</dd></div><div><dt>Contributions</dt><dd>Open to improvement ideas</dd></div></dl>
+            <p class="site-note">The original work cycle is complete at the stage described above. We welcome improvements, extensions, or new ideas built on it; scope and next steps are discussed with the team.</p>
+            <a href="/contact.html?project=virtual-physics-lab#contact-form" class="site-link">Suggest an improvement →</a>
+          </div>
+          <div class="site-actions"><a href="https://www.roblox.com/games/77157246023290/Virtual-Phsics-Laboratory" class="btn btn-green" target="_blank" rel="noopener">Try the Laboratory ↗</a><a href="../assets/poster-virtual-physics-lab.jpg" class="btn btn-ghost" target="_blank" rel="noopener">View the Poster ↗</a><a href="/contact.html?project=virtual-physics-lab#contact-form" class="site-link">Ask about this project →</a></div>
         </div>
       </div>
     </section>
@@ -201,7 +221,7 @@
     </div>
   </footer>
 
-  <script src="../script.js"></script>
-  <script data-goatcounter="https://deniz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script src="../script.js?v=20261106-approved"></script>
+<script data-goatcounter="https://deniz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

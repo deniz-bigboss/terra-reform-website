@@ -26,9 +26,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../styles.css?v=20261106-approved" />
 </head>
 <body>
+<a class="skip-link" href="#main-content">İçeriğe atla</a>
 
   <header class="nav" id="mainNav">
     <div class="nav-inner">
@@ -36,7 +37,7 @@
         <img src="../assets/terra-reform-logo.jpg" alt="Terra Reform" />
         <span>Terra Reform</span>
       </a>
-      <nav class="nav-links" id="navLinks">
+      <nav class="nav-links" id="navLinks" aria-label="Ana menü">
         <a href="/tr/about.html">Hakkımızda</a>
         <a href="/tr/#projects">Projeler</a>
         <a href="/tr/programs.html">Programlar</a>
@@ -50,12 +51,62 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="page-hero">
       <div class="container">
         <p class="label">Aramıza Katıl</p>
         <h1>Terra Reform'a Katıl</h1>
         <p>Terra Reform; bilim, mühendislik, yazılım geliştirme, araştırma ve sürdürülebilirlik alanlarına ilgi duyan motivasyonu yüksek öğrencileri bekliyor. Uluslararası bir girişim olarak her ülkeden, her disiplinden ve her geçmişten öğrenciye kapımız açık.</p>
+      </div>
+        <div class="container idea-top-actions"><a class="btn btn-ghost" href="#contribute">Katkı örneklerini gör</a><a class="btn btn-green" href="#propose-project">Kendi fikrimi getirmek istiyorum →</a></div>
+    </section>
+
+
+    <section class="site-section section section-alt" id="contribute">
+      <div class="container">
+        <p class="label">Katkı yolları</p>
+        <h2 class="s-head">Bir projeye nasıl katkı verebilirsin?</h2>
+        <p class="s-sub">İlgi alanını somut bir katkı fikrine dönüştür. Aşağıdaki örneklerden birini seçebilir veya kendi fikrini paylaşabilirsin.</p>
+        <p class="site-note">İlk proje dönemleri tamamlandı; geliştirme fikirlerine açığız. Aşağıdakiler başlangıç örnekleri. Kapsam ve katkını ekiple birlikte netleştirebilirsin.</p>
+        <div class="site-grid"><article class="site-card">
+          <p class="site-kicker">YAZILIM · EĞİTİM</p>
+          <h3>Fiziği etkileşimli anlat</h3>
+          <p>Sanal Fizik Laboratuvarı için Lua ile deney etkileşimleri geliştirmek veya mevcut simülasyonların kullanımını değerlendirmek bir katkı fikri olabilir.</p>
+          <a class="site-link" href="/tr/projects/virtual-physics-lab.html">Sanal Fizik Laboratuvarı &rarr;</a>
+          <div class="site-actions"><button type="button" class="btn btn-ghost" data-fill-interest="Yazılım Geliştirme" data-fill-message="Sanal Fizik Laboratuvarı için yazılım veya deney etkileşimleri üzerine katkı vermek istiyorum. İlgi alanım ve deneyimim: ">Bu katkı fikrini seç &rarr;</button></div>
+        </article><article class="site-card">
+          <p class="site-kicker">ARAŞTIRMA · ENERJİ</p>
+          <h3>Bir enerji modelini incele</h3>
+          <p>Güneş Mikro Şebekesi önerisinin simülasyon varsayımlarını, enerji ihtiyacını ve sonuçların nasıl anlatıldığını incelemek araştırma odaklı bir katkı örneği.</p>
+          <a class="site-link" href="/tr/projects/solar-microgrid.html">Güneş Mikro Şebekesi &rarr;</a>
+          <div class="site-actions"><button type="button" class="btn btn-ghost" data-fill-interest="Araştırma" data-fill-message="Güneş Mikro Şebekesi projesinin simülasyonları veya araştırması üzerine katkı vermek istiyorum. İlgi alanım ve deneyimim: ">Bu katkı fikrini seç &rarr;</button></div>
+        </article><article class="site-card">
+          <p class="site-kicker">TASARIM · ERİŞİLEBİLİRLİK</p>
+          <h3>Öğrenmeyi erişilebilir kıl</h3>
+          <p>Braille Circuits için anlaşılır kullanım yönergeleri veya erişilebilirlik değerlendirmesi tasarlamak, kapsayıcı eğitimle ilgilenenler için bir başlangıç fikri.</p>
+          <a class="site-link" href="/tr/projects/braille-circuits.html">Braille Circuits &rarr;</a>
+          <div class="site-actions"><button type="button" class="btn btn-ghost" data-fill-interest="Tasarım" data-fill-message="Braille Circuits projesinin erişilebilirliği veya eğitim materyalleri üzerine katkı vermek istiyorum. İlgi alanım ve deneyimim: ">Bu katkı fikrini seç &rarr;</button></div>
+        </article></div>
+        <article class="site-card idea-callout" id="propose-project">
+          <p class="site-kicker">KENDİ FİKRİNLE GEL</p>
+          <h3>Kendi proje fikrin mi var?</h3>
+          <p>Yeni bir araştırma sorusu, yazılım fikri veya mühendislik problemiyle gelebilirsin. İlk konuşma için fikrinin erken bir aşamada olması yeterli; prototipini geliştirmeden veya ekibini kurmadan da paylaşabilirsin.</p>
+          <p>Çözmek istediğin problemi, kimlerin faydalanacağını, aklındaki ilk yaklaşımı ve hangi konularda desteğe ihtiyaç duyduğunu anlat. Kapsamı ve Terra Reform ile uyumunu birlikte değerlendirebilir, uygulanabilir bir ilk adım belirleyebiliriz.</p>
+          <ol class="idea-steps">
+            <li><strong>Fikrini paylaş</strong><span>Problemi ve ilk düşüncelerini birkaç cümleyle anlat.</span></li>
+            <li><strong>Kapsamı birlikte değerlendirelim</strong><span>İhtiyaçları, olası yaklaşımı ve topluluğun katkısını konuşalım.</span></li>
+            <li><strong>İlk adımı belirleyelim</strong><span>Uygun bulunursa küçük ve denenebilir bir başlangıç üzerinde anlaşalım.</span></li>
+          </ol>
+          <div class="proposal-expectations" id="proposal-expectations">
+            <h4>Fikrini paylaştıktan sonra ne olur?</h4>
+            <dl class="site-facts">
+              <div><dt>Kim değerlendirir?</dt><dd>Terra Reform ekibi</dd></div>
+              <div><dt>Ne zaman yanıt gelir?</dt><dd>Genellikle 2–3 gün içinde</dd></div>
+            </dl>
+            <p>Ekip; çözmek istediğin problemi, fikrin Terra Reform ile uyumunu ve olası bir ilk adımı değerlendirir. Kapsamı seninle belirlemeden önce birkaç soru sorabiliriz. Fikrini paylaşman bir görüşme başlatır; uygulanabilir bir kapsam ve ilk adım üzerinde anlaştığımızda projeye başlanabilir.</p>
+          </div>
+          <div class="site-actions"><button type="button" class="btn btn-green" data-propose-project="true">Yeni bir proje öner &rarr;</button></div>
+        </article>
       </div>
     </section>
 
@@ -216,7 +267,15 @@
         <p class="label reveal">Başlamaya Hazır mısınız?</p>
         <h2 class="s-head reveal">Katılmak için Başvurun</h2>
         <p class="s-sub reveal">Bize kendinizden biraz bahsedin — genellikle 2&ndash;3 gün içinde yanıt veriyoruz. E-postayı mı tercih edersiniz? <a href="mailto:mrdenizyilmaz0@gmail.com" style="color: var(--green);">mrdenizyilmaz0@gmail.com</a> adresine yazın.</p>
-        <form class="form-card reveal" action="https://formspree.io/f/xqevdddp" method="POST">
+        <form id="join-form" class="form-card reveal" action="https://formspree.io/f/xqevdddp" method="POST">
+          <div class="form-field">
+            <label for="join-path">Nasıl katılmak istersin?</label>
+            <select id="join-path" name="participation_path" aria-controls="idea-form-guidance">
+              <option value="contribute">Bir projeye katkı vermek</option>
+              <option value="idea">Yeni bir proje önermek</option>
+            </select>
+          </div>
+          <p class="site-note" id="idea-form-guidance" hidden>Fikrini birkaç cümleyle paylaş: çözmek istediğin problem, kimlerin faydalanacağı, aklındaki ilk yaklaşım ve ihtiyaç duyduğun destek. Henüz kesinleşmemiş noktaları da belirtebilirsin.</p>
           <div class="form-row">
             <div class="form-field">
               <label for="join-name">Ad Soyad</label>
@@ -250,8 +309,8 @@
             <textarea id="join-message" name="message" required placeholder="Kendiniz, geçmişiniz ve üzerinde çalışmak istedikleriniz hakkında birkaç satır."></textarea>
           </div>
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-          <button type="submit" class="btn btn-green">Başvuruyu Gönder</button>
-          <p class="form-note">Mesajınız doğrudan Terra Reform ekibine ulaşır. Bilgilerinizi asla kimseyle paylaşmayız.</p>
+          <button type="submit" class="btn btn-green">Başvuruyu gönder</button>
+          <p class="form-note">Başvurular ve proje önerileri Terra Reform ekibine ulaşır. Genellikle 2–3 gün içinde yanıt verir, yararlı bir ilk adımı netleştirmek için birkaç soru sorabiliriz.</p>
         </form>
       </div>
     </section>
@@ -288,7 +347,7 @@
     </div>
   </footer>
 
-  <script src="../script.js"></script>
-  <script data-goatcounter="https://deniz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script src="../script.js?v=20261106-approved"></script>
+<script data-goatcounter="https://deniz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

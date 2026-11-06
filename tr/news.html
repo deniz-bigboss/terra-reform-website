@@ -27,9 +27,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../styles.css?v=20261106-approved" />
 </head>
 <body>
+<a class="skip-link" href="#main-content">İçeriğe atla</a>
 
   <header class="nav" id="mainNav">
     <div class="nav-inner">
@@ -37,7 +38,7 @@
         <img src="../assets/terra-reform-logo.jpg" alt="Terra Reform" />
         <span>Terra Reform</span>
       </a>
-      <nav class="nav-links" id="navLinks">
+      <nav class="nav-links" id="navLinks" aria-label="Ana menü">
         <a href="/tr/about.html">Hakkımızda</a>
         <a href="/tr/#projects">Projeler</a>
         <a href="/tr/programs.html">Programlar</a>
@@ -51,7 +52,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="page-hero">
       <div class="container">
         <p class="label">Güncellemeler</p>
@@ -119,7 +120,7 @@
             <input type="hidden" name="_subject" value="Newsletter signup" />
             <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
             <input type="email" name="email" required placeholder="eposta@adresiniz.com" aria-label="E-posta adresi" autocomplete="email" />
-            <button type="submit" class="btn btn-green">Abone Ol</button>
+            <button type="submit" class="btn btn-green">Abone ol</button>
           </form>
         </div>
       </div>
@@ -157,7 +158,7 @@
     </div>
   </footer>
 
-  <script src="../script.js"></script>
-  <script data-goatcounter="https://deniz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script src="../script.js?v=20261106-approved"></script>
+<script data-goatcounter="https://deniz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

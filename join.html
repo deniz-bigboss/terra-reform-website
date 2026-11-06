@@ -26,9 +26,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20261106-approved" />
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
   <header class="nav" id="mainNav">
     <div class="nav-inner">
@@ -36,7 +37,7 @@
         <img src="assets/terra-reform-logo.jpg" alt="Terra Reform" />
         <span>Terra Reform</span>
       </a>
-      <nav class="nav-links" id="navLinks">
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
         <a href="/about.html">About</a>
         <a href="/#projects">Projects</a>
         <a href="/programs.html">Programs</a>
@@ -50,12 +51,62 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="page-hero">
       <div class="container">
         <p class="label">Get Involved</p>
         <h1>Join Terra Reform</h1>
         <p>Terra Reform welcomes motivated students interested in science, engineering, software development, research, and sustainability. We are an international initiative and welcome students from all backgrounds, disciplines, and countries.</p>
+      </div>
+        <div class="container idea-top-actions"><a class="btn btn-ghost" href="#contribute">Explore contribution examples</a><a class="btn btn-green" href="#propose-project">I have a new project idea →</a></div>
+    </section>
+
+
+    <section class="site-section section section-alt" id="contribute">
+      <div class="container">
+        <p class="label">Ways to contribute</p>
+        <h2 class="s-head">What could you contribute?</h2>
+        <p class="s-sub">Build on completed work or start something new. Choose an improvement example below or bring an idea of your own.</p>
+        <p class="site-note">The original project cycles are complete, and improvement ideas are welcome. These are example starting points; the scope and your contribution would be agreed with the team.</p>
+        <div class="site-grid"><article class="site-card">
+          <p class="site-kicker">SOFTWARE · EDUCATION</p>
+          <h3>Make physics interactive</h3>
+          <p>Developing Lua experiment interactions or reviewing the usability of existing simulations in the Virtual Physics Laboratory could be a way to contribute.</p>
+          <a class="site-link" href="/projects/virtual-physics-lab.html">Virtual Physics Laboratory &rarr;</a>
+          <div class="site-actions"><button type="button" class="btn btn-ghost" data-fill-interest="Software Development" data-fill-message="I would like to contribute to software or experiment interactions for the Virtual Physics Laboratory. My interests and experience: ">Choose this contribution &rarr;</button></div>
+        </article><article class="site-card">
+          <p class="site-kicker">RESEARCH · ENERGY</p>
+          <h3>Explore an energy model</h3>
+          <p>Reviewing simulation assumptions, energy demand, and how findings are communicated in the Solar Microgrid proposal is an example of a research contribution.</p>
+          <a class="site-link" href="/projects/solar-microgrid.html">Solar-Powered School Microgrid &rarr;</a>
+          <div class="site-actions"><button type="button" class="btn btn-ghost" data-fill-interest="Research" data-fill-message="I would like to contribute to simulation review or research for the Solar Microgrid project. My interests and experience: ">Choose this contribution &rarr;</button></div>
+        </article><article class="site-card">
+          <p class="site-kicker">DESIGN · ACCESSIBILITY</p>
+          <h3>Make learning accessible</h3>
+          <p>Developing clear learning instructions or an accessibility evaluation for Braille Circuits could be a starting point for someone interested in inclusive education.</p>
+          <a class="site-link" href="/projects/braille-circuits.html">Braille Circuits &rarr;</a>
+          <div class="site-actions"><button type="button" class="btn btn-ghost" data-fill-interest="Design" data-fill-message="I would like to contribute to accessibility or learning materials for Braille Circuits. My interests and experience: ">Choose this contribution &rarr;</button></div>
+        </article></div>
+        <article class="site-card idea-callout" id="propose-project">
+          <p class="site-kicker">BRING YOUR OWN IDEA</p>
+          <h3>Have a project idea of your own?</h3>
+          <p>Bring a new research question, software idea, or engineering problem. An early idea is enough to start a conversation; you can share it before building a prototype or putting a team together.</p>
+          <p>Tell us the problem you want to solve, who could benefit, your initial approach, and what help you would find useful. Together, we could discuss its scope and fit with Terra Reform and agree on a feasible first step.</p>
+          <ol class="idea-steps">
+            <li><strong>Share the idea</strong><span>Describe the problem and your initial thoughts in a few sentences.</span></li>
+            <li><strong>Discuss scope and fit</strong><span>Explore the needs, possible approach, and how the community could contribute.</span></li>
+            <li><strong>Agree a first step</strong><span>If there is a fit, agree on a small, testable starting point.</span></li>
+          </ol>
+          <div class="proposal-expectations" id="proposal-expectations">
+            <h4>What happens after you share?</h4>
+            <dl class="site-facts">
+              <div><dt>Who reviews it</dt><dd>The Terra Reform team</dd></div>
+              <div><dt>When to expect a reply</dt><dd>Usually within 2–3 days</dd></div>
+            </dl>
+            <p>The team reviews the problem, the idea’s fit with Terra Reform, and a possible first step. We may ask a few questions before agreeing the scope with you. Sharing an idea starts a discussion; a project can begin once we agree on a feasible scope and first step.</p>
+          </div>
+          <div class="site-actions"><button type="button" class="btn btn-green" data-propose-project="true">Propose a new project &rarr;</button></div>
+        </article>
       </div>
     </section>
 
@@ -216,7 +267,15 @@
         <p class="label reveal">Ready to Start?</p>
         <h2 class="s-head reveal">Apply to Join</h2>
         <p class="s-sub reveal">Tell us a bit about yourself — we typically reply within 2&ndash;3 days. Prefer email? Write to <a href="mailto:mrdenizyilmaz0@gmail.com" style="color: var(--green);">mrdenizyilmaz0@gmail.com</a>.</p>
-        <form class="form-card reveal" action="https://formspree.io/f/xqevdddp" method="POST">
+        <form id="join-form" class="form-card reveal" action="https://formspree.io/f/xqevdddp" method="POST">
+          <div class="form-field">
+            <label for="join-path">How would you like to join?</label>
+            <select id="join-path" name="participation_path" aria-controls="idea-form-guidance">
+              <option value="contribute">Contribute to a project</option>
+              <option value="idea">Propose a new project</option>
+            </select>
+          </div>
+          <p class="site-note" id="idea-form-guidance" hidden>Share a few sentences about the problem, who could benefit, your initial approach, and the help you would find useful. It is fine to include questions you are still exploring.</p>
           <div class="form-row">
             <div class="form-field">
               <label for="join-name">Name</label>
@@ -250,8 +309,8 @@
             <textarea id="join-message" name="message" required placeholder="A few lines about yourself, your background, and what you'd like to work on."></textarea>
           </div>
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-          <button type="submit" class="btn btn-green">Send Application</button>
-          <p class="form-note">Your message goes directly to the Terra Reform team. We never share your details with anyone.</p>
+          <button type="submit" class="btn btn-green">Send application</button>
+          <p class="form-note">Applications and project proposals go to the Terra Reform team. We usually reply within 2–3 days and may ask a few questions to agree on a useful first step.</p>
         </form>
       </div>
     </section>
@@ -288,7 +347,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
-  <script data-goatcounter="https://deniz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script src="script.js?v=20261106-approved"></script>
+<script data-goatcounter="https://deniz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
